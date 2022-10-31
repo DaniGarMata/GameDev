@@ -1,0 +1,45 @@
+<config>
+  <app>
+    <title>Game Development Testbed</title>
+    <organization>UPC</organization>
+  </app>
+
+  <renderer>
+    <vsync value="true"/>
+  </renderer>
+
+  <window>
+    <resolution width="672" height="512" scale="1"/>
+    <fullscreen value="false"/>
+    <borderless value="false"/>
+    <resizable value="false"/>
+    <fullscreen_window value="false"/>
+  </window>
+
+  <audio>
+    <music volume="128"/>
+    <fx volume="128"/>
+  </audio>
+
+  <!-- L02: DONE: Add an element for the entity manager and add the player parameters -->
+  <scene>
+    <player x="128" y="384" texturepath="Assets/Textures/Mareo_WIP.png"/>
+    <item x="368" y="336" texturepath="Assets/Textures/goldCoin.png"/>
+    <item x="400" y="304" texturepath="Assets/Textures/goldCoin.png"/>
+    <item x="432" y="304" texturepath="Assets/Textures/goldCoin.png"/>
+	  
+    <item x="560" y="240" texturepath="Assets/Textures/goldCoin.png"/>
+    <item x="592" y="240" texturepath="Assets/Textures/goldCoin.png"/>
+
+	<item x="720" y="240" texturepath="Assets/Textures/goldCoin.png"/>
+	<item x="752" y="240" texturepath="Assets/Textures/goldCoin.png"/>
+	<item x="784" y="240" texturepath="Assets/Textures/goldCoin.png"/>
+
+  </scene>
+
+  <map>
+    <mapfolder path="Assets/Maps/"/>
+    <mapfile path="Assets/Maps/SuperMareoMap.tmx"/>
+  </map>
+  
+</config>
