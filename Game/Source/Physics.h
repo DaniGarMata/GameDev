@@ -41,7 +41,6 @@ public:
 	int width, height;
 	b2Body* body;
 	Module* listener;
-	Collider* ctype;
 };
 
 // Module --------------------------------------
