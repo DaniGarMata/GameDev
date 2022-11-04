@@ -35,6 +35,8 @@ bool Physics::Start()
 
 	world = new b2World(b2Vec2(GRAVITY_X, -GRAVITY_Y));
 	
+	world->Set>ContactListener(this);
+	
 
 	return true;
 }
