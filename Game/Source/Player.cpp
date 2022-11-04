@@ -37,6 +37,7 @@ bool Player::Start() {
 	//initilize textures
 	texture = app->tex->Load(texturePath);
 	pbody = app->physics->CreateCircle(position.x, position.y, width / 2, bodyType::DYNAMIC);
+	pbody->listener = this;
 
 	// L07 TODO 5: Add physics to the player - initialize physics body
 
