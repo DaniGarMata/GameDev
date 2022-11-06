@@ -1,4 +1,26 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(499,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(500,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  EntityManager.cpp
+  Item.cpp
+  Main.cpp
+  App.cpp
+  Audio.cpp
+  Input.cpp
+  Map.cpp
+  Physics.cpp
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Physics.cpp(88,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Physics.cpp(89,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Physics.cpp(118,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Physics.cpp(119,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Physics.cpp(170,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Physics.cpp(342,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Physics.cpp(343,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Physics.cpp(349,27): warning C4244: 'return': conversion from 'float32' to 'int', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Physics.cpp(395,44): warning C4305: '=': truncation from 'double' to 'float32'
   Player.cpp
-  Game.vcxproj -> D:\VG Development\citm_desvj_project_template-L07\Build\Debug\Game.exe
-          1 archivo(s) copiado(s).
+  Scene.cpp
+  Render.cpp
+  Textures.cpp
+  Window.cpp
+  Generating Code...
+  Game.vcxproj -> C:\Users\ASUS\Documents\GitHub\GameDev\Build\Debug\Game.exe
+  Скопировано файлов:         1.

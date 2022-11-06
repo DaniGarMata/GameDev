@@ -45,6 +45,7 @@ bool Scene::Awake(pugi::xml_node& config)
 // Called before the first frame
 bool Scene::Start()
 {
+	titleScreen = app->tex->Load("Assets/textures/TitleScreen.png");
 	//img = app->tex->Load("Assets/Textures/test.png");
 	app->audio->PlayMusic("Assets/Audio/Music/BG_Music.ogg", 0);
 	

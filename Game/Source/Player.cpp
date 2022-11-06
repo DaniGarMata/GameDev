@@ -39,7 +39,8 @@ bool Player::Start() {
 	pbody = app->physics->CreateCircle(position.x, position.y, width / 2, bodyType::DYNAMIC);
 
 	// L07 TODO 5: Add physics to the player - initialize physics body
-
+	jump = false;
+	
 	return true;
 }
 
@@ -49,9 +50,11 @@ bool Player::Update()
 	b2Vec2 velocity = b2Vec2(0, -GRAVITY_Y);
 
 	//L02: DONE 4: modify the position of the player using arrow keys and render the texture
-	if (app->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT) {
+	if (app->input->GetKey(SDL_SCANCODE_W) == KeyState::KEY_REPEAT || app->input->GetKey(SDL_SCANCODE_SPACE) == KeyState::KEY_REPEAT && jump == false) {
 		//position.y -= 1;
 		velocity = b2Vec2(0, -10);
+		
+		
 	}
 
 	if (app->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT) {

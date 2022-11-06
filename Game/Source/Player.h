@@ -21,10 +21,17 @@ public:
 
 	bool Update();
 
+
 	bool CleanUp();
+	bool dead = false;
+	bool alive;
+	bool jump;
+	bool run;
 
+
+	int PlayerPosition;
 public:
-
+	
 private:
 
 	//L02: DONE 1: Declare player parameters
