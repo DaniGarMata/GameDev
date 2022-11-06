@@ -1,26 +1,25 @@
-# {Project Name}
+# {Super Mareo}
 
 ## Description
-
+Super Mareo is a project of Videogame Development by Daniel García Matarredona and Ogylandy Yespagambetov
 {project description}
 
 ## Key Features
 
- - {Feature01}
- - {Feature02}
- - {Feature03}
- - {Feature04}
+ - Game Parody of Super Mario Brothers
+
  
 ## Controls
 
- - {ControlsScheme}
+ - W & Space - Jump
+ - D - Right
+ - A - Left
+ - S - Down
 
 ## Developers
 
- - {Dev01} - {Role(s)}
- - {Dev02} - {Role(s)}
- - {Dev03} - {Role(s)}
- - {Dev04} - {Role(s)}
+ - Daniel García Matarredona - [Dani](https://github.com/DaniGarMata)
+ - Ogylandy Yespagambetov - [Oga](https://github.com/Oga29)
 
 ## License
 
