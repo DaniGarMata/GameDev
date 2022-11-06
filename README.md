@@ -23,7 +23,7 @@ GitHub: https://github.com/DaniGarMata/GameDev
 ## Developers
 
  - Dani García - Coding
- - Ogylandy Yespagambetov - Assistance
+ - Ogylandy Yespagambetov - Coding
 
 
 ## License
