@@ -81,7 +81,7 @@ bool Scene::Update(float dt)
 	if (app->input->GetKey(SDL_SCANCODE_F6) == KEY_DOWN)
 		app->LoadGameRequest();
 
-	if (app->scene->player->position.x > 300 && app->scene->player->position.x < 1682) 
+	if (app->scene->player->position.x > 300 && app->scene->player->position.x < 2700) 
 		app->render->camera.x = -app->scene->player->position.x + 300;
 
 	if (app->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
