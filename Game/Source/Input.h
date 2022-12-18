@@ -62,6 +62,8 @@ public:
 	bool GetWindowEvent(EventWindow ev);
 
 	// Get mouse / axis position
+	int GetMouseX() const;
+	int GetMouseY() const;
 	void GetMousePosition(int &x, int &y);
 	void GetMouseMotion(int& x, int& y);
 

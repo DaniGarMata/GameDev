@@ -80,7 +80,10 @@
   </ItemGroup>
   <ItemGroup>
     <Xml Include="config.xml">
-      <Filter>xml</Filter>
+      <Filter>External\PugiXml</Filter>
+    </Xml>
+    <Xml Include="save_game.xml">
+      <Filter>External\PugiXml</Filter>
     </Xml>
   </ItemGroup>
 </Project>

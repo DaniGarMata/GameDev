@@ -158,3 +158,13 @@ void Input::GetMouseMotion(int& x, int& y)
 	x = mouseMotionX;
 	y = mouseMotionY;
 }
+
+int Input::GetMouseX() const
+{
+	return mouseX;
+}
+
+int Input::GetMouseY() const
+{
+	return mouseY;
+}

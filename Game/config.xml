@@ -1,52 +1,53 @@
 <?xml version="1.0"?>
 <config>
 	<app>
-		<title>Game Development Testbed</title>
-		<organization>UPC</organization>
+		<title>Supper Mareo</title>
+		<organization>CITM</organization>
+		<frcap value="16" />
 	</app>
-	<player>
-		<Player x="4" y="21.5158367" health="3" cooldown="0" attempts="3" />
-	</player>
-	<renderer>
+	<render>
 		<vsync value="false" />
-		<camera x="0" y="-696" />
-	</renderer>
+	</render>
 	<window>
-		<resolution width="1080" height="720" scale="1" />
+		<resolution width="1600" height="900" scale="3" />
 		<fullscreen value="false" />
 		<borderless value="false" />
 		<resizable value="false" />
 		<fullscreen_window value="false" />
-	</window>
-	<Scene />
-	<map>
-		<folder>Assets/maps/</folder>
-	</map>
-	<EntityHandler>
-		<EnemyGoomba id="5" currentPos.x="15.8351364" currentPos.y="21.5749569" checkTimer="9" maxDistanceAgro="5" currentSpeed.x="-2" currentSpeed.y="-0" agroTowardsPlayer="false" health="2" direction="false" />
-		<EnemyGoomba id="6" currentPos.x="15.9321756" currentPos.y="4.57443666" checkTimer="9" maxDistanceAgro="5" currentSpeed.x="-2" currentSpeed.y="-0" agroTowardsPlayer="false" health="2" direction="false" />
-		<EnemyGoomba id="7" currentPos.x="70.9558411" currentPos.y="20.5791683" checkTimer="9" maxDistanceAgro="5" currentSpeed.x="-2" currentSpeed.y="-0" agroTowardsPlayer="false" health="2" direction="false" />
-		<EnemyGoomba id="8" currentPos.x="46.6149063" currentPos.y="22.5783405" checkTimer="9" maxDistanceAgro="5" currentSpeed.x="2" currentSpeed.y="0" agroTowardsPlayer="false" health="2" direction="true" />
-		<EnemyGoomba id="9" currentPos.x="67.9398651" currentPos.y="27.5746384" checkTimer="9" maxDistanceAgro="5" currentSpeed.x="2" currentSpeed.y="0" agroTowardsPlayer="false" health="2" direction="true" />
-		<EnemyGoomba id="10" currentPos.x="70.0234528" currentPos.y="7.57446814" checkTimer="9" maxDistanceAgro="5" currentSpeed.x="-2" currentSpeed.y="-0" agroTowardsPlayer="false" health="2" direction="false" />
-		<EnemyGoomba id="11" currentPos.x="24.9260941" currentPos.y="25.5741444" checkTimer="9" maxDistanceAgro="5" currentSpeed.x="2" currentSpeed.y="0" agroTowardsPlayer="false" health="2" direction="true" />
-		<EnemyGoomba id="12" currentPos.x="50.1779213" currentPos.y="9.57833481" checkTimer="9" maxDistanceAgro="5" currentSpeed.x="-2" currentSpeed.y="-0" agroTowardsPlayer="false" health="2" direction="false" />
-		<EnemyBullet id="0" currentSpeed.x="0" currentSpeed.y="0" spawnPos.x="456" spawnPos.y="456" currentPos.x="9.5" currentPos.y="9.5" checkTimer="1" checkTimerAgro="0" maxDistanceAgro="8" agroTowardsPlayer="false" health="1" />
-		<EnemyBullet id="1" currentSpeed.x="0" currentSpeed.y="0" spawnPos.x="1320" spawnPos.y="312" currentPos.x="27.5" currentPos.y="6.5" checkTimer="1" checkTimerAgro="0" maxDistanceAgro="8" agroTowardsPlayer="false" health="1" />
-		<EnemyBullet id="2" currentSpeed.x="0" currentSpeed.y="0" spawnPos.x="2040" spawnPos.y="600" currentPos.x="42.5" currentPos.y="12.5" checkTimer="1" checkTimerAgro="0" maxDistanceAgro="8" agroTowardsPlayer="false" health="1" />
-		<EnemyBullet id="3" currentSpeed.x="0" currentSpeed.y="0" spawnPos.x="3480" spawnPos.y="1176" currentPos.x="72.5" currentPos.y="24.5" checkTimer="1" checkTimerAgro="0" maxDistanceAgro="8" agroTowardsPlayer="false" health="1" />
-		<EnemyBullet id="4" currentSpeed.x="0" currentSpeed.y="0" spawnPos.x="3528" spawnPos.y="264" currentPos.x="73.5" currentPos.y="5.79666567" checkTimer="1" checkTimerAgro="0" maxDistanceAgro="8" agroTowardsPlayer="false" health="1" />
 		
-		<Item id="18" currentPos.x="12.5" currentPos.y="21.5" />
-		<Item id="19" currentPos.x="33.5" currentPos.y="24.5" />
-		<Item id="20" currentPos.x="3.5" currentPos.y="3.5" />
-		<Item id="21" currentPos.x="39.5" currentPos.y="14.5" />
-		<Item id="22" currentPos.x="37" currentPos.y="21.5" />
-		<Item id="23" currentPos.x="37" currentPos.y="22.5" />
-		<Item id="24" currentPos.x="47" currentPos.y="28" />
-		<Item id="25" currentPos.x="47" currentPos.y="28" />
-		<Item id="26" currentPos.x="71" currentPos.y="20" />
-		<Item id="27" currentPos.x="6" currentPos.y="28.1041679" />
-		<Item id="28" currentPos.x="15.6875" currentPos.y="28.395834" />
-	</EntityHandler>
+	</window>
+	<audio>
+		<music value="5" />
+		<fx value="5" />
+	</audio>
+	<guiManager>
+		
+	</guiManager>
+	<ui>
+		
+		
+	</ui>
+	<entities>
+		<folder>Assets/Textures/</folder>
+		<sfx>Assets/Audio/Fx/</sfx>
+	</entities>
+	<map>
+		<folder>Assets/Maps/</folder>
+	</map>
+	<intro>
+		<audio>Assets/Audio/</audio>
+		<folder>Assets/Maps/</folder>
+		
+	</intro>
+	<scene>
+		<audio>Assets/Audio/</audio>
+		<folder>Assets/Maps/</folder>
+		<startX value="23" />
+		<startY value="830" />
+	</scene>
+	
+	<death>
+		<audio>Assets/Audio/</audio>
+		<folder>Assets/Maps/</folder>
+	</death>
 </config>
