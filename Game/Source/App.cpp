@@ -72,7 +72,9 @@ void App::AddModule(Module* module)
 bool App::Awake()
 {
 	bool ret = false;
-
+	pugi::xml_document configFile;
+	pugi::xml_node config;
+	pugi::xml_node configApp;
 	// L01: DONE 3: Load config from XML
 	ret = LoadConfig();
 
