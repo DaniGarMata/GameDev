@@ -14,7 +14,6 @@ C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Physics.cpp(343,13): warning 
 C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Physics.cpp(349,27): warning C4244: 'return': conversion from 'float32' to 'int', possible loss of data
 C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Physics.cpp(395,44): warning C4305: '=': truncation from 'double' to 'float32'
   Player.cpp
-  Render.cpp
   Scene.cpp
   Window.cpp
   Generating Code...

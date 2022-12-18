@@ -1,52 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="Source\Window.cpp" />
-    <ClCompile Include="Source\Textures.cpp" />
-    <ClCompile Include="Source\Scene.cpp" />
-    <ClCompile Include="Source\Render.cpp" />
-    <ClCompile Include="Source\Main.cpp" />
-    <ClCompile Include="Source\Input.cpp" />
-    <ClCompile Include="Source\Audio.cpp" />
-    <ClCompile Include="Source\App.cpp" />
     <ClCompile Include="Source\Log.cpp">
-      <Filter>Utils</Filter>
+      <Filter>Source\Utils</Filter>
     </ClCompile>
     <ClCompile Include="Source\External\PugiXml\src\pugixml.cpp">
       <Filter>External\PugiXml</Filter>
     </ClCompile>
-    <ClCompile Include="Source\EntityManager.cpp" />
-    <ClCompile Include="Source\Player.cpp" />
-    <ClCompile Include="Source\Item.cpp" />
-    <ClCompile Include="Source\Map.cpp" />
-    <ClCompile Include="Source\Physics.cpp" />
+    <ClCompile Include="Source\EntityManager.cpp">
+      <Filter>Source\Cpp files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Player.cpp">
+      <Filter>Source\Cpp files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Item.cpp">
+      <Filter>Source\Cpp files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Main.cpp">
+      <Filter>Source\Cpp files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Input.cpp">
+      <Filter>Source\Cpp files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Audio.cpp">
+      <Filter>Source\Cpp files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\App.cpp">
+      <Filter>Source\Cpp files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Physics.cpp">
+      <Filter>Source\Cpp files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Map.cpp">
+      <Filter>Source\Cpp files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Render.cpp">
+      <Filter>Source\Cpp files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Textures.cpp">
+      <Filter>Source\Cpp files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Window.cpp">
+      <Filter>Source\Cpp files</Filter>
+    </ClCompile>
+    <ClCompile Include="Goomba.cpp">
+      <Filter>Source\Cpp files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene.cpp">
+      <Filter>Source\Cpp files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Window.h" />
-    <ClInclude Include="Source\Textures.h" />
-    <ClInclude Include="Source\Scene.h" />
-    <ClInclude Include="Source\Render.h" />
-    <ClInclude Include="Source\Module.h" />
-    <ClInclude Include="Source\Input.h" />
-    <ClInclude Include="Source\Audio.h" />
-    <ClInclude Include="Source\App.h" />
     <ClInclude Include="Source\Defs.h">
-      <Filter>Utils</Filter>
+      <Filter>Source\Utils</Filter>
     </ClInclude>
     <ClInclude Include="Source\DynArray.h">
-      <Filter>Utils</Filter>
+      <Filter>Source\Utils</Filter>
     </ClInclude>
     <ClInclude Include="Source\List.h">
-      <Filter>Utils</Filter>
+      <Filter>Source\Utils</Filter>
     </ClInclude>
     <ClInclude Include="Source\Log.h">
-      <Filter>Utils</Filter>
+      <Filter>Source\Utils</Filter>
     </ClInclude>
     <ClInclude Include="Source\Point.h">
-      <Filter>Utils</Filter>
+      <Filter>Source\Utils</Filter>
     </ClInclude>
     <ClInclude Include="Source\SString.h">
-      <Filter>Utils</Filter>
+      <Filter>Source\Utils</Filter>
     </ClInclude>
     <ClInclude Include="Source\External\PugiXml\src\pugiconfig.hpp">
       <Filter>External\PugiXml</Filter>
@@ -55,27 +76,81 @@
       <Filter>External\PugiXml</Filter>
     </ClInclude>
     <ClInclude Include="Source\Queue.h">
-      <Filter>Utils</Filter>
+      <Filter>Source\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Source\EntityManager.h" />
-    <ClInclude Include="Source\Player.h" />
-    <ClInclude Include="Source\Entity.h" />
-    <ClInclude Include="Source\Item.h" />
-    <ClInclude Include="Source\Map.h" />
-    <ClInclude Include="Source\Physics.h" />
+    <ClInclude Include="Source\Audio.h">
+      <Filter>Source\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Physics.h">
+      <Filter>Source\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Window.h">
+      <Filter>Source\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Map.h">
+      <Filter>Source\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Module.h">
+      <Filter>Source\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Render.h">
+      <Filter>Source\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Textures.h">
+      <Filter>Source\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Input.h">
+      <Filter>Source\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Source\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Entity.h">
+      <Filter>Source\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\EntityManager.h">
+      <Filter>Source\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Item.h">
+      <Filter>Source\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Player.h">
+      <Filter>Source\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Goomba.h">
+      <Filter>Source\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\App.h">
+      <Filter>Source\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene.h">
+      <Filter>Source\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy.h">
+      <Filter>Source\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Pathfinding.h">
+      <Filter>Source\Header files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">
       <UniqueIdentifier>{83a966c7-b4bb-4eff-9c2c-3ff3c7b55a60}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Utils">
-      <UniqueIdentifier>{2cad778a-d356-48b0-9fee-587f1bbb187e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="External\PugiXml">
       <UniqueIdentifier>{2855ff7f-53a1-413d-a75b-18b4ade921dd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="xml">
-      <UniqueIdentifier>{be1012b3-ee09-4ac1-8866-0c7db3af56ea}</UniqueIdentifier>
+    <Filter Include="Source">
+      <UniqueIdentifier>{d9df3cc3-3185-4bd6-83f1-8b4afec7fc50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Cpp files">
+      <UniqueIdentifier>{5498a142-becd-4f6f-8aae-00fb12bcb612}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Header files">
+      <UniqueIdentifier>{cd57f4e2-7c7a-4050-906e-1efc2571e560}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Utils">
+      <UniqueIdentifier>{2cad778a-d356-48b0-9fee-587f1bbb187e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

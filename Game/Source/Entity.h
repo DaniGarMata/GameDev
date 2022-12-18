@@ -5,6 +5,8 @@
 #include "SString.h"
 #include "Input.h"
 #include "Render.h"
+#include "Animation.h"
+#include "Physics.h"
 
 struct Collider;
 
@@ -12,15 +14,39 @@ enum class EntityType
 {
 	PLAYER,
 	ITEM,
-	UNKNOWN
+	UNKNOWN,
+	COIN,
+	ENEMY_GOOMBA,
+	ENEMY_BULLET,
+	CHECKPOINT
 };
 
+struct SDL_Texture;
+class PhysBody;
+class EntityManager;
+enum EntityState
+{
+	NONE = -1,
+	HURT
+};
 class Entity
 {
 public:
 
 	Entity(EntityType type) : type(type), active(true) {}
+	Entity() {}
+	Entity(EntityType type_, iPoint position_) : type(type_), position(position_) {}
 
+	virtual ~Entity() {};
+
+	virtual void Update(float dt) {};
+	virtual void Use() {};
+
+
+	iPoint GetPos() { return position; }
+	int GetHealth() { return health; }
+	EntityState GetState() { return currentState; }
+	void SetState(EntityState state) { currentState = state; }
 	virtual bool Awake()
 	{
 		return true;
@@ -72,6 +98,9 @@ public:
 	virtual void OnCollision(Collider* c1, Collider* c2) {
 	
 	};
+	virtual void SetTarget(Entity* target) {};
+	virtual Entity* GetTarget() { return nullptr; };
+	friend class EntityManager;
 
 public:
 
@@ -79,7 +108,17 @@ public:
 	EntityType type;
 	bool active = true;
 	pugi::xml_node parameters;
-
+	int ID;
+	SString name;
+	PhysBody* pbody;
+	EntityType type;
+	bool active = true;
+	bool setPendingToDelete;
+	iPoint position;
+	
+	EntityState currentState = EntityState::NONE;
+	int health;
+	int h, w;
 	// Possible properties, it depends on how generic we
 	// want our Entity class, maybe it's not renderable...
 	iPoint position;       

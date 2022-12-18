@@ -5,6 +5,7 @@
 
 #include "PugiXml/src/pugixml.hpp"
 
+
 class App;
 // L07 TODO 2: Add Physics Module
 
@@ -13,6 +14,8 @@ class PhysBody;
 class Module
 {
 public:
+	Module(bool startEnabled) : active(false), isEnabled(startEnabled)
+	{}
 
 	Module() : active(false)
 	{}
@@ -74,11 +77,23 @@ public:
 
 	}
 
+	virtual void Disable()
+	{
+		if (isEnabled)
+		{
+			isEnabled = false;
+			CleanUp();
+		}
+	}
+	bool IsEnabled() const
+	{
+		return isEnabled;
+	}
 public:
 
 	SString name;
 	bool active;
-
+	bool isEnabled = true;
 };
 
 #endif // __MODULE_H__
