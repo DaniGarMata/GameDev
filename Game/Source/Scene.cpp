@@ -5,14 +5,23 @@
 #include "Render.h"
 #include "Window.h"
 #include "Scene.h"
-#include "EntityManager.h"
 #include "Map.h"
+#include "Physics.h"
+#include "Player.h"
+//#include "FadeToBlack.h"
+//#include "UI.h"
+#include "Defs.h"
+#include "Log.h"
+#include "CheckPoint.h"
+#include "Pathfinding.h"
+#include "EntityManager.h"
+//#include "GuiManager.h"
 
 
 #include "Defs.h"
 #include "Log.h"
 
-Scene::Scene() : Module()
+Scene::Scene(bool startEnabled) : Module(startEnabled)
 {
 	name.Create("scene");
 }
@@ -29,17 +38,13 @@ bool Scene::Awake(pugi::xml_node& config)
 
 	// iterate all objects in the scene
 	// Check https://pugixml.org/docs/quickstart.html#access
-	for (pugi::xml_node itemNode = config.child("item"); itemNode; itemNode = itemNode.next_sibling("item"))
-	{
-		Item* item = (Item*)app->entityManager->CreateEntity(EntityType::ITEM);
-		item->parameters = itemNode;
-	}
-
-	//L02: DONE 3: Instantiate the player using the entity manager
-	player = (Player*)app->entityManager->CreateEntity(EntityType::PLAYER);
-	player->parameters = config.child("player");
-
+	folder.Create(config.child("folder").child_value());
+	audioFile.Create(config.child("audio").child_value());
+	startX = config.child("startX").attribute("value").as_int();
+	startY = config.child("startY").attribute("value").as_int();
+	LOG("%s", folder.GetString());
 	return ret;
+
 }
 
 // Called before the first frame
@@ -50,8 +55,30 @@ bool Scene::Start()
 	app->audio->PlayMusic("Assets/Audio/Music/BG_Music.ogg", 0);
 	
 	// L03: DONE: Load map
-	app->map->Load();
+	if (app->map->Load("map.tmx") == true)
+	{
+		int w, h;
+		uchar* data = NULL;
 
+		if (app->map->CreateWalkabilityMap(w, h, &data))
+		{
+			app->pathfinding->SetMap(w, h, data);
+		}
+
+		RELEASE_ARRAY(data);
+	}
+	if (app->hasLost)
+	{
+		app->LoadGameRequest();
+	}
+
+	app->entityManager->Enable();
+
+	if (app->hasLoaded && app->canContinue)
+	{
+		app->LoadGameRequest();
+		app->canContinue = false;
+	}
 	// L04: DONE 7: Set the window title with map/tileset info
 	SString title("Map:%dx%d Tiles:%dx%d Tilesets:%d",
 		app->map->mapData.width,
@@ -74,43 +101,68 @@ bool Scene::PreUpdate()
 // Called each loop iteration
 bool Scene::Update(float dt)
 {
-	// L03: DONE 3: Request App to Load / Save when pressing the keys F5 (save) / F6 (load)
+	LOG("%i\n", app->currentScene);
+
 	if (app->input->GetKey(SDL_SCANCODE_F5) == KEY_DOWN)
 		app->SaveGameRequest();
 
 	if (app->input->GetKey(SDL_SCANCODE_F6) == KEY_DOWN)
 		app->LoadGameRequest();
+	if (app->debug)
+	{
+		if (app->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
+			app->render->camera.y += 30;
 
-	if (app->scene->player->position.x > 300 && app->scene->player->position.x < 2700) 
-		app->render->camera.x = -app->scene->player->position.x + 300;
+		if (app->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT)
+			app->render->camera.y -= 30;
 
-	if (app->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
-		app->render->camera.y += 2;
+		if (app->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
+			app->render->camera.x += 30;
 
-	if (app->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT)
-		app->render->camera.y -= 2;
+		if (app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
+			app->render->camera.x -= 30;
+	}
+	/*if (app->input->GetKey(SDL_SCANCODE_F2) == KEY_DOWN || app->currentScene == 2)
+	{
+		app->fadeToBlack->MFadeToBlack(this, (Module*)app->scene2);
+	}
 
-	if (app->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
-		app->render->camera.x += 2;
+	if (app->input->GetKey(SDL_SCANCODE_F4) == KEY_DOWN || app->die)
+	{
+		app->fadeToBlack->MFadeToBlack(this, (Module*)app->death);
+		app->die = true;
 
-	if (app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
-		app->render->camera.x -= 2;
+	}
+	if (app->input->GetKey(SDL_SCANCODE_F7) == KEY_DOWN)
+	{
+		app->fadeToBlack->MFadeToBlack(this, (Module*)app->death);
+		app->win_ = true;
+	}
+	*/
 
-	//app->render->DrawTexture(img, 380, 100); // Placeholder not needed any more
 
 	// Draw map
+	/*app->render->DrawTexture(background, 0, 0, NULL, false, 0.75f);
+	app->render->DrawTexture(jungle, 0, 284, NULL, false, 0.5f);
 	app->map->Draw();
-
+	*/
 	return true;
 }
 
 // Called each loop iteration
-bool Scene::PostUpdate()
+/*bool Scene::PostUpdate()
 {
 	bool ret = true;
 
 	if(app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
 		ret = false;
+
+	return ret;
+}*/
+bool Scene::PostUpdate()
+{
+	bool ret = true;
+
 
 	return ret;
 }
@@ -119,6 +171,11 @@ bool Scene::PostUpdate()
 bool Scene::CleanUp()
 {
 	LOG("Freeing scene");
-
+	app->map->Unload();
+	app->map->Disable();
+	app->entityManager->DestroyAllEntities();
+	app->physics->Disable();
+	//app->ui->Disable();
+	return true;
 	return true;
 }

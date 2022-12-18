@@ -11,7 +11,7 @@ class Scene : public Module
 {
 public:
 
-	Scene();
+	Scene(bool startEnabled);
 
 	// Destructor
 	virtual ~Scene();
@@ -42,7 +42,18 @@ public:
 
 private:
 	SDL_Texture* img;
+	SDL_Texture* background;
+	SDL_Texture* jungle;
+	SDL_Texture* pathTex;
 
+	
+	SString folder;
+	SString audioFile;
+	int startX;
+	int startY;
+
+	iPoint origin;
+	bool originSelected = false;
 
 };
 

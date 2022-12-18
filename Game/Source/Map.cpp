@@ -1,17 +1,19 @@
-
 #include "App.h"
 #include "Render.h"
 #include "Textures.h"
 #include "Map.h"
-#include "Physics.h"
-
+#include "Player.h"
 #include "Defs.h"
 #include "Log.h"
+#include "Physics.h"
+#include "EntityManager.h"
+
+#include "Window.h"
 
 #include <math.h>
 #include "SDL_image/include/SDL_image.h"
 
-Map::Map() : Module(), mapLoaded(false)
+Map::Map(bool startEnabled) : Module(startEnabled), mapLoaded(false)
 {
     name.Create("map");
 }
@@ -163,7 +165,7 @@ bool Map::CleanUp()
 }
 
 // Load new map
-bool Map::Load()
+bool Map::Load(const char* filename)
 {
     bool ret = true;
 

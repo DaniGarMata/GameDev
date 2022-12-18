@@ -17,13 +17,13 @@
 #pragma comment( lib, "../Game/Source/External/Box2D/libx86/ReleaseLib/Box2D.lib" )
 #endif
 
-Physics::Physics() : Module()
+Physics::Physics(bool startEnabled) : Module(startEnabled)
 {
+	name.Create("physics");
 	world = NULL;
 	mouse_joint = NULL;
 
 }
-
 // Destructor
 Physics::~Physics()
 {
@@ -197,7 +197,7 @@ bool Physics::PostUpdate()
 	
 	// Bonus code: this will iterate all objects in the world and draw the circles
 	// You need to provide your own macro to translate meters to pixels
-	if (debug)
+	if (app->debug)
 	{
 		for (b2Body* b = world->GetBodyList(); b; b = b->GetNext())
 		{

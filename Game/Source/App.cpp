@@ -20,16 +20,16 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 {
 	frames = 0;
 
-	input = new Input();
-	win = new Window();
-	render = new Render();
-	tex = new Textures();
-	audio = new Audio();
+	win = new Window(true);
+	input = new Input(true);
+	render = new Render(true);
+	tex = new Textures(true);
+	audio = new Audio(true);
 	//L07 TODO 2: Add Physics module
-	physics = new Physics();
-	scene = new Scene();
-	entityManager = new EntityManager();
-	map = new Map();
+	physics = new Physics(true);
+	scene = new Scene(false);
+	entityManager = new EntityManager(true);
+	map = new Map(true);
 
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp
@@ -71,34 +71,48 @@ void App::AddModule(Module* module)
 // Called before render is available
 bool App::Awake()
 {
-	bool ret = false;
 	pugi::xml_document configFile;
 	pugi::xml_node config;
 	pugi::xml_node configApp;
+
+	bool ret = false;
+
 	// L01: DONE 3: Load config from XML
-	ret = LoadConfig();
+	config = LoadConfig(configFile);
+
+	if (config.empty() == false)
+	{
+		ret = true;
+		configApp = config.child("app");
+
+		// L01: DONE 4: Read the title from the config file
+		title.Create(configApp.child("title").child_value());
+		organization.Create(configApp.child("organization").child_value());
+
+		// L08: DONE 1: Read from config file your framerate cap
+		maxFrameRate = configApp.child("frcap").attribute("value").as_int();
+	}
 
 	if (ret == true)
 	{
-		title = configNode.child("app").child("title").child_value(); // L01: DONE 4: Read the title from the config file
-
 		ListItem<Module*>* item;
 		item = modules.start;
 
-		while (item != NULL && ret == true)
+		while ((item != NULL) && (ret == true))
 		{
 			// L01: DONE 5: Add a new argument to the Awake method to receive a pointer to an xml node.
 			// If the section with the module name exists in config.xml, fill the pointer with the valid xml_node
 			// that can be used to read all variables for that module.
 			// Send nullptr if the node does not exist in config.xml
-			pugi::xml_node node = configNode.child(item->data->name.GetString());
-			ret = item->data->Awake(node);
+			ret = item->data->Awake(config.child(item->data->name.GetString()));
+
 			item = item->next;
 		}
 	}
 
 	return ret;
 }
+
 
 // Called before the first frame
 bool App::Start()
@@ -140,21 +154,14 @@ bool App::Update()
 }
 
 // Load config from XML file
-bool App::LoadConfig()
+pugi::xml_node App::LoadConfig(pugi::xml_document& configFile) const
 {
-	bool ret = false;
+	pugi::xml_node ret;
 
-	// L01: DONE 3: Load config.xml file using load_file() method from the xml_document class
-	pugi::xml_parse_result parseResult = configFile.load_file("config.xml");
+	pugi::xml_parse_result result = configFile.load_file(CONFIG_FILENAME);
 
-	// L01: DONE 3: Check result for loading errors
-	if (parseResult) {
-		ret = true;
-		configNode = configFile.child("config");
-	}
-	else {
-		LOG("Error in App::LoadConfig(): %s", parseResult.description());
-	}
+	if (result == NULL) LOG("Could not load xml file: %s. pugi error: %s", CONFIG_FILENAME, result.description());
+	else ret = configFile.child("config");
 
 	return ret;
 }
@@ -289,7 +296,7 @@ void App::LoadGameRequest()
 }
 
 // ---------------------------------------
-void App::SaveGameRequest() 
+void App::SaveGameRequest() const
 {
 	// NOTE: We should check if SAVE_STATE_FILENAME actually exist and... should we overwriten
 	saveGameRequested = true;

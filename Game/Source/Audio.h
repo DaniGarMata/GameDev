@@ -2,6 +2,7 @@
 #define __AUDIO_H__
 
 #include "Module.h"
+#include "List.h"
 
 #define DEFAULT_MUSIC_FADE_TIME 2.0f
 
@@ -12,7 +13,7 @@ class Audio : public Module
 {
 public:
 
-	Audio();
+	Audio(bool startEnabled);
 
 	// Destructor
 	virtual ~Audio();
@@ -22,7 +23,7 @@ public:
 
 	// Called before quitting
 	bool CleanUp();
-
+	bool Update(float dt);
 	// Play a music file
 	bool PlayMusic(const char* path, float fadeTime = DEFAULT_MUSIC_FADE_TIME);
 
@@ -32,10 +33,15 @@ public:
 	// Play a previously loaded WAV
 	bool PlayFx(unsigned int fx, int repeat = 0);
 
+	bool LoadState(pugi::xml_node&);
+	bool SaveState(pugi::xml_node&) const;
+	int volMusic;
+	int volFX;
 private:
 
 	_Mix_Music* music;
-	List<Mix_Chunk *>	fx;
+	List<Mix_Chunk*>	fx;
+
 };
 
-#endif // __AUDIO_H__
+#endif // __AUDIO_H__	

@@ -77,6 +77,15 @@ public:
 
 	}
 
+	virtual void Enable()
+	{
+		if (!isEnabled)
+		{
+			isEnabled = true;
+			Start();
+		}
+	}
+
 	virtual void Disable()
 	{
 		if (isEnabled)

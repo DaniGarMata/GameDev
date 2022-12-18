@@ -36,9 +36,9 @@ public:
 	}
 
 	// Math ------------------------------------------------
-	Point operator -(const Point &v) const
+	Point operator -(const Point& v) const
 	{
-		p2Vector2 r;
+		Point r;
 
 		r.x = x - v.x;
 		r.y = y - v.y;
@@ -46,9 +46,9 @@ public:
 		return(r);
 	}
 
-	Point operator + (const Point &v) const
+	Point operator + (const Point& v) const
 	{
-		p2Vector2 r;
+		Point r;
 
 		r.x = x + v.x;
 		r.y = y + v.y;
@@ -71,7 +71,11 @@ public:
 
 		return(*this);
 	}
-
+	void operator *=(float scalar)
+	{
+		x *= scalar;
+		y *= scalar;
+	}
 	bool operator ==(const Point& v) const
 	{
 		return (x == v.x && y == v.y);
@@ -101,7 +105,13 @@ public:
 
 		return(*this);
 	}
+	void Normalize()
+	{
+		float modulus = sqrtf(x * x + y * y);
 
+		x /= modulus;
+		y /= modulus;
+	}
 	// Distances ---------------------------------------------
 	TYPE DistanceTo(const Point& v) const
 	{

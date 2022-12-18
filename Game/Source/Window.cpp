@@ -5,9 +5,9 @@
 #include "Log.h"
 
 #include "SDL/include/SDL.h"
+#include "SDL_image/include/SDL_image.h"
 
-
-Window::Window() : Module()
+Window::Window(bool startEnabled) : Module(startEnabled)
 {
 	window = NULL;
 	screenSurface = NULL;
@@ -34,16 +34,16 @@ bool Window::Awake(pugi::xml_node& config)
 	{
 		// Create window
 		// L01: DONE 6: Load all required configurations from config.xml
-		// Tip: get the name of the child and the attribute value
 		Uint32 flags = SDL_WINDOW_SHOWN;
-		bool fullscreen = config.child("fullscreen").attribute("value").as_bool(); // get from config
-		bool borderless = config.child("bordeless").attribute("value").as_bool(); // get from config
-		bool resizable = config.child("resizable").attribute("value").as_bool(); // get from config
-		bool fullscreen_window = config.child("fullscreen_window").attribute("value").as_bool(); // get from config
+		bool fullscreen = config.child("fullscreen").attribute("value").as_bool();
+		bool borderless = config.child("borderless").attribute("value").as_bool();
+		bool resizable = config.child("resizable").attribute("value").as_bool();
+		bool fullscreen_window = config.child("fullscreen_window").attribute("value").as_bool();
+		folder.Create(config.child("folder").child_value());
 
-		width = config.child("resolution").attribute("width").as_int(); //get from config 
-		height = config.child("resolution").attribute("height").as_int();; //get from config 
-		scale = config.child("resolution").attribute("scale").as_int();; //get from config 
+		width = config.child("resolution").attribute("width").as_int(640);
+		height = config.child("resolution").attribute("height").as_int(480);
+		scale = config.child("resolution").attribute("scale").as_int(1);
 
 		if (fullscreen == true) flags |= SDL_WINDOW_FULLSCREEN;
 		if (borderless == true) flags |= SDL_WINDOW_BORDERLESS;
@@ -51,7 +51,8 @@ bool Window::Awake(pugi::xml_node& config)
 		if (fullscreen_window == true) flags |= SDL_WINDOW_FULLSCREEN_DESKTOP;
 
 		window = SDL_CreateWindow(app->GetTitle(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, flags);
-
+		SDL_Surface* icon = IMG_Load(folder.GetString());
+		SDL_SetWindowIcon(window, icon);
 		if (window == NULL)
 		{
 			LOG("Window could not be created! SDL_Error: %s\n", SDL_GetError());
@@ -99,4 +100,12 @@ void Window::GetWindowSize(uint& width, uint& height) const
 uint Window::GetScale() const
 {
 	return scale;
+}
+
+void Window::SetFullScreen(bool value)
+{
+	if (value)
+		SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN_DESKTOP);
+	else if (!value)
+		SDL_SetWindowFullscreen(window, SDL_FALSE);
 }

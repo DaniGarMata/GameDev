@@ -17,10 +17,14 @@ struct TileSet
 	int	spacing;
 	int	tileWidth;
 	int	tileHeight;
-	int columns;
-	int tilecount;
+	
 
 	SDL_Texture* texture;
+	int	texWidth;
+	int	texHeight;
+	int	tilecount;
+	int	columns;
+
 
 	// L05: DONE 7: Create a method that receives a tile id and returns it's Rectfind the Rect associated with a specific tile id
 	SDL_Rect GetTileRect(int gid) const;
@@ -100,6 +104,8 @@ struct MapData
 	int	height;
 	int	tileWidth;
 	int	tileHeight;
+
+	SDL_Color backgroundColor;
 	List<TileSet*> tilesets;
 	MapTypes type;
 
@@ -111,7 +117,7 @@ class Map : public Module
 {
 public:
 
-    Map();
+	Map(bool startEnabled);
 
     // Destructor
     virtual ~Map();
@@ -126,15 +132,20 @@ public:
     bool CleanUp();
 
     // Load new map
-    bool Load();
+	bool Load(const char* path);
+
+	bool Unload();
 
 	// L05: DONE 8: Create a method that translates x,y coordinates from map positions to world positions
 	iPoint MapToWorld(int x, int y) const;
+	iPoint WorldToMap(int x, int y) const;
 
+	bool CreateWalkabilityMap(int& width, int& height, uchar** buffer) const;
 private:
 
 	bool LoadMap(pugi::xml_node mapFile);
-
+	bool LoadTilesetDetails(pugi::xml_node& tileset_node, TileSet* set);
+	bool LoadTilesetImage(pugi::xml_node& tileset_node, TileSet* set);
 	// L04: DONE 4: Create and call a private function to load a tileset
 	bool LoadTileSet(pugi::xml_node mapFile);
 
@@ -148,13 +159,14 @@ private:
 	// L06: DONE 6: Load a group of properties 
 	bool LoadProperties(pugi::xml_node& node, Properties& properties);
 
+	bool LoadProps();
 public: 
 
 	// L04: DONE 1: Declare a variable data of the struct MapData
 	MapData mapData;
-
+	iPoint bounds;
 private:
-
+	List<PhysBody*> cols;
     SString mapFileName;
 	SString mapFolder;
     bool mapLoaded;

@@ -13,9 +13,6 @@
     <ClCompile Include="Source\Player.cpp">
       <Filter>Source\Cpp files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Item.cpp">
-      <Filter>Source\Cpp files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Main.cpp">
       <Filter>Source\Cpp files</Filter>
     </ClCompile>
@@ -43,10 +40,25 @@
     <ClCompile Include="Source\Window.cpp">
       <Filter>Source\Cpp files</Filter>
     </ClCompile>
-    <ClCompile Include="Goomba.cpp">
+    <ClCompile Include="Source\Scene.cpp">
       <Filter>Source\Cpp files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Scene.cpp">
+    <ClCompile Include="Source\Goomba.cpp">
+      <Filter>Source\Cpp files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Perftimer.cpp">
+      <Filter>Source\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Timer.cpp">
+      <Filter>Source\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Bullet.cpp">
+      <Filter>Source\Cpp files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Coin.cpp">
+      <Filter>Source\Cpp files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CheckPoint.cpp">
       <Filter>Source\Cpp files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -102,9 +114,6 @@
     <ClInclude Include="Source\Input.h">
       <Filter>Source\Header files</Filter>
     </ClInclude>
-    <ClInclude Include="Animation.h">
-      <Filter>Source\Header files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Entity.h">
       <Filter>Source\Header files</Filter>
     </ClInclude>
@@ -117,9 +126,6 @@
     <ClInclude Include="Source\Player.h">
       <Filter>Source\Header files</Filter>
     </ClInclude>
-    <ClInclude Include="Goomba.h">
-      <Filter>Source\Header files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\App.h">
       <Filter>Source\Header files</Filter>
     </ClInclude>
@@ -130,6 +136,27 @@
       <Filter>Source\Header files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Pathfinding.h">
+      <Filter>Source\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Goomba.h">
+      <Filter>Source\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Animation.h">
+      <Filter>Source\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Perftimer.h">
+      <Filter>Source\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Timer.h">
+      <Filter>Source\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Bullet.h">
+      <Filter>Source\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Coin.h">
+      <Filter>Source\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CheckPoint.h">
       <Filter>Source\Header files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -154,10 +181,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="config.xml">
+    <Xml Include="save_game.xml">
       <Filter>External\PugiXml</Filter>
     </Xml>
-    <Xml Include="save_game.xml">
+    <Xml Include="Source\config.xml">
       <Filter>External\PugiXml</Filter>
     </Xml>
   </ItemGroup>
