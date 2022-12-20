@@ -1,24 +1,19 @@
-# Platformer Aplha
+# Super Mareo
 
 ## Description
 
-A simple platformer made with XML and TMXL
+A parody platformer made with XML and TMXL
 
 ## Key Features
 
  - Movement with the keyboard
- - Platforming
+ - Collectables(coins and health mushrooms)
  - Double jump
- - Two playable levels
- - Save/Load game
- - Debug mode with various features
- - Checkpoints
- - AI enemies
- - Collectables
+ - superPower ability(just a super Jump, might be changed later)
+ - Two playable levels(both the same at the current state)
  
 ## Controls
 
- - {ControlsScheme}
  - A -> Move left
  - D -> Move right
  - Space -> Jump / jump twice
@@ -32,16 +27,16 @@ DEBUG MODE
  - F5 -> Save game
  - F6 -> Load game
  - F7 -> Win
- - F8 -> Hurt player
- - F9 -> Collision view
+ - F8 -> Damage player
+ - F9 -> View collisions
  - F10 -> God mode
  - F11 -> Disable/Enable 30 FPS
  - Arrow keywords -> Move the camera
 
 ## Developers
 
- - Jose A. Atencia - Developer
- - Víctor Falcón - Developer
+ - Dani Garcia Mata - Developer [Dani Garcia](https://github.com/DaniGarMata).
+ - Ogylandy Yespagambetov - Developer [Oga](https://github.com/Oga29)
 
 
 ## License
