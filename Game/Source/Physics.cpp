@@ -12,18 +12,19 @@
 #include "Box2D/Box2D/Box2D.h"
 
 #ifdef _DEBUG
-#pragma comment( lib, "../Game/Source/External/Box2D/libx86/DebugLib/Box2D.lib" )
+
+#pragma comment( lib, "../Game/Source/External/Box2D/libx86/DDebug/Box2D.lib" )
 #else
-#pragma comment( lib, "../Game/Source/External/Box2D/libx86/ReleaseLib/Box2D.lib" )
+#pragma comment( lib, "../Game/Source/External/Box2D/libx86/Release/Box2D.lib" )
 #endif
 
 Physics::Physics(bool startEnabled) : Module(startEnabled)
 {
-	name.Create("physics");
 	world = NULL;
 	mouse_joint = NULL;
 
 }
+
 // Destructor
 Physics::~Physics()
 {
@@ -43,11 +44,11 @@ bool Physics::Start()
 bool Physics::PreUpdate()
 {
 	bool ret = true;
-	world->Step(1.0f / 60.0f, 6, 2);
+	world->Step(app->dt / 1000, 6, 2);
 
 	for (b2Contact* c = world->GetContactList(); c; c = c->GetNext())
 	{
-		if (c->IsTouching() && c->GetFixtureA()->IsSensor())
+		if (c->IsTouching())
 		{
 			PhysBody* pb1 = (PhysBody*)c->GetFixtureA()->GetBody()->GetUserData();
 			PhysBody* pb2 = (PhysBody*)c->GetFixtureB()->GetBody()->GetUserData();
@@ -87,36 +88,6 @@ PhysBody* Physics::CreateRectangle(int x, int y, int width, int height, bodyType
 	b->SetUserData(pbody);
 	pbody->width = width * 0.5f;
 	pbody->height = height * 0.5f;
-
-	return pbody;
-}
-
-PhysBody* Physics::CreateCircle(int x, int y, int radious, bodyType type)
-{
-	b2BodyDef body;
-
-	if (type == DYNAMIC) body.type = b2_dynamicBody;
-	if (type == STATIC) body.type = b2_staticBody;
-	if (type == KINEMATIC) body.type = b2_kinematicBody;
-
-	body.position.Set(PIXEL_TO_METERS(x), PIXEL_TO_METERS(y));
-
-	b2Body* b = world->CreateBody(&body);
-	b2CircleShape circle;
-	circle.m_radius = PIXEL_TO_METERS(radious);
-
-	b2FixtureDef fixture;
-	fixture.shape = &circle;
-	fixture.density = 1.0f;
-	b->ResetMassData();
-
-	b->CreateFixture(&fixture);
-
-	PhysBody* pbody = new PhysBody();
-	pbody->body = b;
-	b->SetUserData(pbody);
-	pbody->width = radious * 0.5f;
-	pbody->height = radious * 0.5f;
 
 	return pbody;
 }
@@ -197,7 +168,7 @@ bool Physics::PostUpdate()
 	
 	// Bonus code: this will iterate all objects in the world and draw the circles
 	// You need to provide your own macro to translate meters to pixels
-	if (app->debug)
+	if (app->player->debug)
 	{
 		for (b2Body* b = world->GetBodyList(); b; b = b->GetNext())
 		{
@@ -407,6 +378,7 @@ b2WeldJoint* Physics::CreateWeldJoint(PhysBody* A, b2Vec2 anchorA, PhysBody* B, 
 	weldJointDef.localAnchorA.Set(anchorA.x, anchorA.y);
 	weldJointDef.localAnchorB.Set(anchorB.x, anchorB.y);
 	weldJointDef.referenceAngle = 0;
+	
 
 	return (b2WeldJoint*)world->CreateJoint(&weldJointDef);
 }

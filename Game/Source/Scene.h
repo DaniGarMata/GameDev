@@ -2,8 +2,7 @@
 #define __SCENE_H__
 
 #include "Module.h"
-#include "Player.h"
-#include "Item.h"
+
 
 struct SDL_Texture;
 
@@ -34,27 +33,19 @@ public:
 	// Called before quitting
 	bool CleanUp();
 
-public:
-
-	//L02: DONE 3: Declare a Player attribute 
-	Player* player;
-	SDL_Texture* titleScreen;
+	
 
 private:
-	SDL_Texture* img;
 	SDL_Texture* background;
-	SDL_Texture* jungle;
 	SDL_Texture* pathTex;
-
+	SDL_Texture* originTex;
 	
 	SString folder;
 	SString audioFile;
-	int startX;
-	int startY;
+	int winX;
 
 	iPoint origin;
 	bool originSelected = false;
-
 };
 
 #endif // __SCENE_H__

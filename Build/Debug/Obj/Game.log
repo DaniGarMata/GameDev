@@ -1,13 +1,31 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(500,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-Bullet.obj : error LNK2019: unresolved external symbol "public: int __thiscall PathFinding::CreatePath(class Point<int> const &,class Point<int> const &)" (?CreatePath@PathFinding@@QAEHABV?$Point@H@@0@Z) referenced in function "public: void __thiscall Bullet::ComputePath(float)" (?ComputePath@Bullet@@QAEXM@Z)
-Goomba.obj : error LNK2001: unresolved external symbol "public: int __thiscall PathFinding::CreatePath(class Point<int> const &,class Point<int> const &)" (?CreatePath@PathFinding@@QAEHABV?$Point@H@@0@Z)
-Bullet.obj : error LNK2019: unresolved external symbol "public: class DynArray<class Point<int> > const * __thiscall PathFinding::GetLastPath(void)const " (?GetLastPath@PathFinding@@QBEPBV?$DynArray@V?$Point@H@@@@XZ) referenced in function "public: void __thiscall Bullet::ComputePath(float)" (?ComputePath@Bullet@@QAEXM@Z)
-EntityManager.obj : error LNK2001: unresolved external symbol "public: class DynArray<class Point<int> > const * __thiscall PathFinding::GetLastPath(void)const " (?GetLastPath@PathFinding@@QBEPBV?$DynArray@V?$Point@H@@@@XZ)
-Goomba.obj : error LNK2001: unresolved external symbol "public: class DynArray<class Point<int> > const * __thiscall PathFinding::GetLastPath(void)const " (?GetLastPath@PathFinding@@QBEPBV?$DynArray@V?$Point@H@@@@XZ)
-Bullet.obj : error LNK2019: unresolved external symbol "public: class Point<int> __thiscall Map::WorldToMap(int,int)const " (?WorldToMap@Map@@QBE?AV?$Point@H@@HH@Z) referenced in function "public: void __thiscall Bullet::ComputePath(float)" (?ComputePath@Bullet@@QAEXM@Z)
-Goomba.obj : error LNK2001: unresolved external symbol "public: class Point<int> __thiscall Map::WorldToMap(int,int)const " (?WorldToMap@Map@@QBE?AV?$Point@H@@HH@Z)
-Player.obj : error LNK2019: unresolved external symbol "public: virtual __thiscall Player::~Player(void)" (??1Player@@UAE@XZ) referenced in function "public: virtual void * __thiscall Player::`scalar deleting destructor'(unsigned int)" (??_GPlayer@@UAEPAXI@Z)
-Scene.obj : error LNK2019: unresolved external symbol "public: bool __thiscall Map::Unload(void)" (?Unload@Map@@QAE_NXZ) referenced in function "public: virtual bool __thiscall Scene::CleanUp(void)" (?CleanUp@Scene@@UAE_NXZ)
-Scene.obj : error LNK2019: unresolved external symbol "public: bool __thiscall Map::CreateWalkabilityMap(int &,int &,unsigned char * *)const " (?CreateWalkabilityMap@Map@@QBE_NAAH0PAPAE@Z) referenced in function "public: virtual bool __thiscall Scene::Start(void)" (?Start@Scene@@UAE_NXZ)
-Scene.obj : error LNK2019: unresolved external symbol "public: void __thiscall PathFinding::SetMap(unsigned int,unsigned int,unsigned char *)" (?SetMap@PathFinding@@QAEXIIPAE@Z) referenced in function "public: virtual bool __thiscall Scene::Start(void)" (?Start@Scene@@UAE_NXZ)
-C:\Users\ASUS\Documents\GitHub\GameDev\Build\Debug\Game.exe : fatal error LNK1120: 7 unresolved externals
+  Enemies.cpp
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(54,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(56,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(24,11): warning C4244: '=': conversion from 'float' to 'TYPE', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(25,11): warning C4244: '=': conversion from 'float' to 'TYPE', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(30,15): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(49,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(49,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(49,15): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(64,24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(65,25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemies.cpp(208,31): warning C4244: 'argument': conversion from 'TYPE' to 'float', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemies.cpp(208,24): warning C4244: 'argument': conversion from 'TYPE' to 'float', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+  Game.vcxproj -> C:\Users\ASUS\Documents\GitHub\GameDev\Build\Debug\Game.exe

@@ -1,40 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="96" height="16" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="1">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="96" height="16" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="1">
  <tileset firstgid="1" name="Tileset" tilewidth="32" tileheight="32" spacing="2" margin="2" tilecount="72" columns="8">
   <image source="Tileset.png" width="274" height="308"/>
-  <terraintypes>
-   <terrain name="Grass" tile="14"/>
-   <terrain name="Clouds" tile="57"/>
-   <terrain name="Hills" tile="11"/>
-   <terrain name="Semisolid" tile="19"/>
-  </terraintypes>
-  <tile id="5" terrain=",,,0"/>
-  <tile id="6" terrain=",,0,0"/>
-  <tile id="7" terrain=",,0,"/>
-  <tile id="10" terrain=",2,,2"/>
-  <tile id="11" terrain="2,2,2,2"/>
-  <tile id="12" terrain="2,,2,"/>
-  <tile id="13" terrain=",0,,0"/>
-  <tile id="14" terrain="0,0,0,0"/>
-  <tile id="15" terrain="0,,0,"/>
-  <tile id="18" terrain=",,,3"/>
-  <tile id="19" terrain=",,3,3"/>
-  <tile id="20" terrain=",,3,"/>
-  <tile id="26" terrain=",3,,3"/>
-  <tile id="27" terrain="3,3,3,3"/>
-  <tile id="28" terrain="3,,3,"/>
-  <tile id="56" terrain=",,,1"/>
-  <tile id="57" terrain=",,1,1"/>
-  <tile id="58" terrain=",,1,"/>
-  <tile id="59" terrain=",1,,"/>
-  <tile id="60" terrain="1,1,,"/>
-  <tile id="61" terrain="1,,,"/>
-  <tile id="64" terrain=",1,,1"/>
-  <tile id="65" terrain="1,1,1,1"/>
-  <tile id="66" terrain="1,,1,"/>
-  <tile id="67" terrain=",,,2"/>
-  <tile id="68" terrain=",,2,2"/>
-  <tile id="69" terrain=",,2,"/>
+  <wangsets>
+   <wangset name="Рельефы" type="corner" tile="-1">
+    <wangcolor name="Grass" color="#ff0000" tile="14" probability="1"/>
+    <wangcolor name="Clouds" color="#00ff00" tile="57" probability="1"/>
+    <wangcolor name="Hills" color="#0000ff" tile="11" probability="1"/>
+    <wangcolor name="Semisolid" color="#ff7700" tile="19" probability="1"/>
+    <wangtile tileid="5" wangid="0,0,0,1,0,0,0,0"/>
+    <wangtile tileid="6" wangid="0,0,0,1,0,1,0,0"/>
+    <wangtile tileid="7" wangid="0,0,0,0,0,1,0,0"/>
+    <wangtile tileid="10" wangid="0,3,0,3,0,0,0,0"/>
+    <wangtile tileid="11" wangid="0,3,0,3,0,3,0,3"/>
+    <wangtile tileid="12" wangid="0,0,0,0,0,3,0,3"/>
+    <wangtile tileid="13" wangid="0,1,0,1,0,0,0,0"/>
+    <wangtile tileid="14" wangid="0,1,0,1,0,1,0,1"/>
+    <wangtile tileid="15" wangid="0,0,0,0,0,1,0,1"/>
+    <wangtile tileid="18" wangid="0,0,0,4,0,0,0,0"/>
+    <wangtile tileid="19" wangid="0,0,0,4,0,4,0,0"/>
+    <wangtile tileid="20" wangid="0,0,0,0,0,4,0,0"/>
+    <wangtile tileid="26" wangid="0,4,0,4,0,0,0,0"/>
+    <wangtile tileid="27" wangid="0,4,0,4,0,4,0,4"/>
+    <wangtile tileid="28" wangid="0,0,0,0,0,4,0,4"/>
+    <wangtile tileid="56" wangid="0,0,0,2,0,0,0,0"/>
+    <wangtile tileid="57" wangid="0,0,0,2,0,2,0,0"/>
+    <wangtile tileid="58" wangid="0,0,0,0,0,2,0,0"/>
+    <wangtile tileid="59" wangid="0,2,0,0,0,0,0,0"/>
+    <wangtile tileid="60" wangid="0,2,0,0,0,0,0,2"/>
+    <wangtile tileid="61" wangid="0,0,0,0,0,0,0,2"/>
+    <wangtile tileid="64" wangid="0,2,0,2,0,0,0,0"/>
+    <wangtile tileid="65" wangid="0,2,0,2,0,2,0,2"/>
+    <wangtile tileid="66" wangid="0,0,0,0,0,2,0,2"/>
+    <wangtile tileid="67" wangid="0,0,0,3,0,0,0,0"/>
+    <wangtile tileid="68" wangid="0,0,0,3,0,3,0,0"/>
+    <wangtile tileid="69" wangid="0,0,0,0,0,3,0,0"/>
+   </wangset>
+  </wangsets>
  </tileset>
  <tileset firstgid="73" name="MapMetadata" tilewidth="32" tileheight="32" spacing="1" margin="1" tilecount="2" columns="2">
   <image source="MapMetadata.png" width="67" height="34"/>

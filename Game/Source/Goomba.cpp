@@ -5,51 +5,53 @@
 #include "Map.h"
 #include "SDL/include/SDL.h"
 
-Goomba::Goomba(iPoint position_, Entity* target, int ID_) : Enemy(EntityType::ENEMY_GOOMBA, position_, target)
+Goomba::Goomba() : Enemy()
 {
-	this->ID = ID_;
-	name.Create("goomba%i", ID);
-	anim.PushBack({ 0, 0, 32, 32 });
-	anim.PushBack({ 32, 0, 32, 22 });
-	
+	/*anim.PushBack({0,3, 28, 25});
+	anim.PushBack({ 39, 4, 29, 22 });
+	anim.PushBack({ 75, 6, 32, 20 });
+	anim.PushBack({ 111, 6, 35, 20 });
+	anim.PushBack({ 147, 6, 35, 20 });
+	anim.PushBack({ 183, 3, 31, 23 });*/
+	anim.PushBack({ 0, 0, 27, 27 });
+	anim.PushBack({39, 0, 27, 27});
+	/*anim.PushBack({75, 0, 27, 27});
+	anim.PushBack({ 111, 0, 27, 27 });
+	anim.PushBack({ 147, 0, 27, 27 });
+	anim.PushBack({ 183, 0, 27, 27 });*/
 	anim.speed = 0.1f;
 	anim.loop = true;
-	h = 32;
-	w = 32;
+	h = 20;
+	w = 20;
 	health = 1;
-	pbody = app->physics->CreateRectangle(position.x, position.y, w, h, DYNAMIC);
-	pbody->eListener = this;
-	pbody->body->SetFixedRotation(true);
-	currentAnimation = &anim;
+	
 	range = 200;
 	pathUpdateTime = 1.5f;
 	pathUpdateTimer = pathUpdateTime;
+	type = GOOMBA;
 }
 
+Goomba::~Goomba()
+{
+}
 
 
 void Goomba::Update(float dt)
 {
-	if (this->health <= 0)
-	{
-		this->setPendingToDelete = true;
-		return;
-	}
-
 	anim.Update();
 
 	hasTarget = CheckIfHasTarget();
-	position.x = METERS_TO_PIXELS(pbody->body->GetPosition().x);
-	position.y = METERS_TO_PIXELS(pbody->body->GetPosition().y);
+	pos.x = METERS_TO_PIXELS(pbody->body->GetPosition().x);
+	pos.y = METERS_TO_PIXELS(pbody->body->GetPosition().y);
 	//The enemy has only to move if it's in range of the player
-	if (hasTarget && health > 0 && target->GetHealth() > 0)
+	if (hasTarget && health > 0 && app->player->lives > 0)
 	{
 		ComputePath(dt);
 	}
 	else
 	{
 		pbody->body->SetLinearVelocity({ 0, 0 });
-
+	
 	}
 	if (pbody->body->GetLinearVelocity().x <= 0.1)
 	{
@@ -63,9 +65,8 @@ void Goomba::Update(float dt)
 
 void Goomba::ComputePath(float dt)
 {
-	if (target == nullptr) return;
-	iPoint playerPos = target->GetPos();
-	float dist = Distance(position.x, position.y, playerPos.x, playerPos.y);
+	iPoint playerPos = app->player->pos;
+	float dist = Distance(pos.x, pos.y, playerPos.x, playerPos.y);
 
 	pathUpdateTimer += dt;
 	if (dist > range) {
@@ -73,14 +74,14 @@ void Goomba::ComputePath(float dt)
 	}
 	else
 	{
-		if (target->GetState() != EntityState::HURT)
+		if (!app->player->hurt)
 		{
 			if (pathUpdateTimer >= pathUpdateTime) {
 				pathUpdateTimer = 0.0f;
 				pathIndex = 0;
 
-				iPoint origin = app->map->WorldToMap(position.x, position.y);
-				iPoint destination = app->map->WorldToMap(target->GetPos().x, target->GetPos().y);
+				iPoint origin = app->map->WorldToMap(pos.x, pos.y);
+				iPoint destination = app->map->WorldToMap(app->player->pos.x, app->player->pos.y);
 				int res = app->pathfinding->CreatePath(origin, destination);
 
 				if (res > 0) {
@@ -102,7 +103,7 @@ void Goomba::ComputePath(float dt)
 				if (currentPath != nullptr)
 				{
 					if (currentPath->Count() > 0) {
-						if (position == activeNode) {
+						if (pos == activeNode) {
 							pathIndex++;
 
 							if (pathIndex < currentPath->Count()) {
@@ -126,13 +127,13 @@ void Goomba::ComputePath(float dt)
 	}
 }
 
-void Goomba::MoveToPlayer(iPoint destination, float dt)
+void Goomba::MoveToPlayer(iPoint destination,float dt)
 {
-	iPoint diff = destination - position;
+	iPoint diff = destination - pos;
 
 	fPoint dir = { (float)diff.x, (float)diff.y };
 	dir.Normalize();
-	dir *= speed * 3;
+	dir *= speed * 4;
 
 	fPoint step = { dir.x / dt, dir.y / dt };
 	pbody->body->SetLinearVelocity({ step.x, pbody->body->GetLinearVelocity().y });

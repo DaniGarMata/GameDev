@@ -5,19 +5,14 @@
 
 #include "PugiXml/src/pugixml.hpp"
 
-
-class App;
-// L07 TODO 2: Add Physics Module
-
 class PhysBody;
+class App;
 
 class Module
 {
 public:
-	Module(bool startEnabled) : active(false), isEnabled(startEnabled)
-	{}
 
-	Module() : active(false)
+	Module(bool startEnabled) : active(false), isEnabled(startEnabled)
 	{}
 
 	void Init()
@@ -26,6 +21,7 @@ public:
 	}
 
 	// Called before render is available
+	// L01: DONE 5: Sending config file to all modules
 	virtual bool Awake(pugi::xml_node&)
 	{
 		return true;
@@ -61,19 +57,18 @@ public:
 		return true;
 	}
 
-	// L03: DONE 2: Create new virtual methods to LoadState / SaveState
+    // L02: DONE 2: Create new virtual methods to Load / Save state
 	virtual bool LoadState(pugi::xml_node&)
 	{
 		return true;
 	}
 
-	virtual bool SaveState(pugi::xml_node&)
+	virtual bool SaveState(pugi::xml_node&) const
 	{
 		return true;
 	}
-
-	// L07 TODO 2: Add Physics Module
-	virtual void OnCollision(PhysBody* bodyA, PhysBody* bodyB) {
+	virtual void OnCollision(PhysBody* bodyA, PhysBody* bodyB)
+	{
 
 	}
 
@@ -103,6 +98,6 @@ public:
 	SString name;
 	bool active;
 	bool isEnabled = true;
-};
 
+};
 #endif // __MODULE_H__

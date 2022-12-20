@@ -7,7 +7,7 @@
 
 #include "PugiXml\src\pugixml.hpp"
 
-// L04: DONE 2: Create a struct to hold information for a TileSet
+// L03: DONE 2: Create a struct to hold information for a TileSet
 // Ignore Terrain Types and Tile Types for now, but we want the image!
 struct TileSet
 {
@@ -17,7 +17,6 @@ struct TileSet
 	int	spacing;
 	int	tileWidth;
 	int	tileHeight;
-	
 
 	SDL_Texture* texture;
 	int	texWidth;
@@ -25,12 +24,11 @@ struct TileSet
 	int	tilecount;
 	int	columns;
 
-
-	// L05: DONE 7: Create a method that receives a tile id and returns it's Rectfind the Rect associated with a specific tile id
-	SDL_Rect GetTileRect(int gid) const;
+	// L04: DONE 7: Create a method that receives a tile id and returns it's Rectfind the Rect associated with a specific tile id
+	SDL_Rect GetTileRect(int id) const;
 };
 
-//  We create an enum for map type, just for convenience,
+// L03: DONE 1: We create an enum for map type, just for convenience,
 // NOTE: Platformer game will be of type ORTHOGONAL
 enum MapTypes
 {
@@ -40,13 +38,14 @@ enum MapTypes
 	MAPTYPE_STAGGERED
 };
 
-// L06: DONE 5: Create a generic structure to hold properties
+// L06: TODO 5: Create a generic structure to hold properties
 struct Properties
 {
 	struct Property
 	{
+		//...
 		SString name;
-		bool value;
+		int value;
 	};
 
 	~Properties()
@@ -64,22 +63,21 @@ struct Properties
 		list.Clear();
 	}
 
-	// L06: DONE 7: Method to ask for the value of a custom property
-	Property* GetProperty(const char* name);
+	// L06: TODO 7: Method to ask for the value of a custom property
+	int GetProperty(const char* name, int default_value = 0) const;
 
 	List<Property*> list;
 };
 
-// L05: DONE 1: Create a struct for the map layer
+// L04: DONE 1: Create a struct for the map layer
 struct MapLayer
 {
 	SString	name;
-	int id; 
 	int width;
 	int height;
 	uint* data;
 
-	// L06: DONE: Store custom properties
+	// L06: DONE 1: Support custom properties
 	Properties properties;
 
 	MapLayer() : data(NULL)
@@ -90,27 +88,27 @@ struct MapLayer
 		RELEASE(data);
 	}
 
-	// L05: DONE 6: Short function to get the gid value of x,y
+	// L04: DONE 6: Short function to get the value of x,y
 	inline uint Get(int x, int y) const
 	{
 		return data[(y * width) + x];
 	}
 };
 
-// L04: DONE 1: Create a struct needed to hold the information to Map node
+// L03: DONE 1: Create a struct needed to hold the information to Map node
 struct MapData
 {
 	int width;
 	int	height;
 	int	tileWidth;
 	int	tileHeight;
-
+	
 	SDL_Color backgroundColor;
-	List<TileSet*> tilesets;
 	MapTypes type;
+	List<TileSet*> tilesets;
 
-	// L05: DONE 2: Add a list/array of layers to the map
-	List<MapLayer*> maplayers;
+	// L04: DONE 2: Add a list/array of layers to the map
+	List<MapLayer*> layers;
 };
 
 class Map : public Module
@@ -119,57 +117,64 @@ public:
 
 	Map(bool startEnabled);
 
-    // Destructor
-    virtual ~Map();
+	// Destructor
+	virtual ~Map();
 
-    // Called before render is available
-    bool Awake(pugi::xml_node& conf);
+	// Called before render is available
+	bool Awake(pugi::xml_node& conf);
 
-    // Called each loop iteration
-    void Draw();
+	// Called each loop iteration
+	void Draw();
 
-    // Called before quitting
-    bool CleanUp();
+	// Called before quitting
+	bool CleanUp();
 
-    // Load new map
+	// Load new map
 	bool Load(const char* path);
 
 	bool Unload();
 
-	// L05: DONE 8: Create a method that translates x,y coordinates from map positions to world positions
+	// L04: DONE 8: Create a method that translates x,y coordinates from map positions to world positions
 	iPoint MapToWorld(int x, int y) const;
+
+	// L05: DONE 2: Add orthographic world to map coordinates
 	iPoint WorldToMap(int x, int y) const;
 
 	bool CreateWalkabilityMap(int& width, int& height, uchar** buffer) const;
+
 private:
 
+	// L03: Methods to load all required map data
 	bool LoadMap(pugi::xml_node mapFile);
+	bool LoadTileSets(pugi::xml_node mapFile);
 	bool LoadTilesetDetails(pugi::xml_node& tileset_node, TileSet* set);
 	bool LoadTilesetImage(pugi::xml_node& tileset_node, TileSet* set);
-	// L04: DONE 4: Create and call a private function to load a tileset
-	bool LoadTileSet(pugi::xml_node mapFile);
 
-	// L05
+	// L04
 	bool LoadLayer(pugi::xml_node& node, MapLayer* layer);
 	bool LoadAllLayers(pugi::xml_node mapNode);
 
-	// L06: DONE 2
-	TileSet* GetTilesetFromTileId(int gid) const;
-
-	// L06: DONE 6: Load a group of properties 
+	// L06: TODO 6: Load a group of properties 
 	bool LoadProperties(pugi::xml_node& node, Properties& properties);
 
-	bool LoadProps();
-public: 
+	// L06: TODO 3: Pick the right Tileset based on a tile id
+	TileSet* GetTilesetFromTileId(int id) const;
 
-	// L04: DONE 1: Declare a variable data of the struct MapData
+	bool LoadColliders();
+
+	bool LoadProps();
+
+
+public:
+
+	// L03: DONE 1: Add your struct for map info
 	MapData mapData;
 	iPoint bounds;
+
 private:
 	List<PhysBody*> cols;
-    SString mapFileName;
-	SString mapFolder;
-    bool mapLoaded;
+	SString folder;
+	bool mapLoaded;
 };
 
 #endif // __MAP_H__

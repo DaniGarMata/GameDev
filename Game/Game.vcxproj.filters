@@ -5,64 +5,91 @@
       <Filter>Source\Utils</Filter>
     </ClCompile>
     <ClCompile Include="Source\External\PugiXml\src\pugixml.cpp">
-      <Filter>External\PugiXml</Filter>
+      <Filter>External</Filter>
     </ClCompile>
-    <ClCompile Include="Source\EntityManager.cpp">
-      <Filter>Source\Cpp files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Player.cpp">
-      <Filter>Source\Cpp files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Main.cpp">
-      <Filter>Source\Cpp files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Input.cpp">
-      <Filter>Source\Cpp files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Audio.cpp">
-      <Filter>Source\Cpp files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\App.cpp">
-      <Filter>Source\Cpp files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Physics.cpp">
-      <Filter>Source\Cpp files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Map.cpp">
-      <Filter>Source\Cpp files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Render.cpp">
-      <Filter>Source\Cpp files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Textures.cpp">
-      <Filter>Source\Cpp files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Window.cpp">
-      <Filter>Source\Cpp files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Scene.cpp">
-      <Filter>Source\Cpp files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Goomba.cpp">
-      <Filter>Source\Cpp files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Perftimer.cpp">
+    <ClCompile Include="Source\Perftimer .cpp">
       <Filter>Source\Utils</Filter>
     </ClCompile>
     <ClCompile Include="Source\Timer.cpp">
       <Filter>Source\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Bullet.cpp">
-      <Filter>Source\Cpp files</Filter>
+    <ClCompile Include="Source\Player.cpp">
+      <Filter>Source\Cpp</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Coin.cpp">
-      <Filter>Source\Cpp files</Filter>
+    <ClCompile Include="Source\Scene2.cpp">
+      <Filter>Source\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene.cpp">
+      <Filter>Source\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Intro.cpp">
+      <Filter>Source\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Death.cpp">
+      <Filter>Source\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Collectables.cpp">
+      <Filter>Source\Cpp</Filter>
     </ClCompile>
     <ClCompile Include="Source\CheckPoint.cpp">
-      <Filter>Source\Cpp files</Filter>
+      <Filter>Source\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Goomba.cpp">
+      <Filter>Source\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Enemies.cpp">
+      <Filter>Source\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Bullet.cpp">
+      <Filter>Source\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Audio.cpp">
+      <Filter>Source\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FadeToBlack.cpp">
+      <Filter>Source\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Fonts.cpp">
+      <Filter>Source\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Input.cpp">
+      <Filter>Source\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Map.cpp">
+      <Filter>Source\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Pathfinding.cpp">
+      <Filter>Source\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Physics.cpp">
+      <Filter>Source\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Render.cpp">
+      <Filter>Source\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Textures.cpp">
+      <Filter>Source\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UI.cpp">
+      <Filter>Source\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Window.cpp">
+      <Filter>Source\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\App.cpp">
+      <Filter>Source\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Main.cpp">
+      <Filter>Source\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Enemy.cpp">
+      <Filter>Source\Cpp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Animation.h">
+      <Filter>Source\Utils</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Defs.h">
       <Filter>Source\Utils</Filter>
     </ClInclude>
@@ -78,114 +105,117 @@
     <ClInclude Include="Source\Point.h">
       <Filter>Source\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Source\SString.h">
-      <Filter>Source\Utils</Filter>
-    </ClInclude>
     <ClInclude Include="Source\External\PugiXml\src\pugiconfig.hpp">
-      <Filter>External\PugiXml</Filter>
+      <Filter>External</Filter>
     </ClInclude>
     <ClInclude Include="Source\External\PugiXml\src\pugixml.hpp">
-      <Filter>External\PugiXml</Filter>
+      <Filter>External</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Queue.h">
-      <Filter>Source\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Audio.h">
-      <Filter>Source\Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Physics.h">
-      <Filter>Source\Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Window.h">
-      <Filter>Source\Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Map.h">
-      <Filter>Source\Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Module.h">
-      <Filter>Source\Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Render.h">
-      <Filter>Source\Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Textures.h">
-      <Filter>Source\Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Input.h">
-      <Filter>Source\Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Entity.h">
-      <Filter>Source\Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\EntityManager.h">
-      <Filter>Source\Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Item.h">
-      <Filter>Source\Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Player.h">
-      <Filter>Source\Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\App.h">
-      <Filter>Source\Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Scene.h">
-      <Filter>Source\Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Enemy.h">
-      <Filter>Source\Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Pathfinding.h">
-      <Filter>Source\Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Goomba.h">
-      <Filter>Source\Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Animation.h">
-      <Filter>Source\Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Perftimer.h">
+    <ClInclude Include="Source\SString.h">
       <Filter>Source\Utils</Filter>
     </ClInclude>
     <ClInclude Include="Source\Timer.h">
       <Filter>Source\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Bullet.h">
-      <Filter>Source\Header files</Filter>
+    <ClInclude Include="Source\Perftimer.h">
+      <Filter>Source\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Coin.h">
-      <Filter>Source\Header files</Filter>
+    <ClInclude Include="Source\Module.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Player.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene2.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Intro.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Death.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Collectables.h">
+      <Filter>Source\Headers</Filter>
     </ClInclude>
     <ClInclude Include="Source\CheckPoint.h">
-      <Filter>Source\Header files</Filter>
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Goomba.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemies.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Bullet.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Window.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Audio.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FadeToBlack.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Fonts.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Input.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Map.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Pathfinding.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Physics.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Render.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Textures.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UI.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\App.h">
+      <Filter>Source\Headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="External">
-      <UniqueIdentifier>{83a966c7-b4bb-4eff-9c2c-3ff3c7b55a60}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="External\PugiXml">
-      <UniqueIdentifier>{2855ff7f-53a1-413d-a75b-18b4ade921dd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source">
-      <UniqueIdentifier>{d9df3cc3-3185-4bd6-83f1-8b4afec7fc50}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Cpp files">
-      <UniqueIdentifier>{5498a142-becd-4f6f-8aae-00fb12bcb612}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Header files">
-      <UniqueIdentifier>{cd57f4e2-7c7a-4050-906e-1efc2571e560}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Utils">
-      <UniqueIdentifier>{2cad778a-d356-48b0-9fee-587f1bbb187e}</UniqueIdentifier>
-    </Filter>
+    <Xml Include="..\Output\config.xml">
+      <Filter>External</Filter>
+    </Xml>
+    <Xml Include="..\Output\save_game.xml">
+      <Filter>External</Filter>
+    </Xml>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="save_game.xml">
-      <Filter>External\PugiXml</Filter>
-    </Xml>
-    <Xml Include="Source\config.xml">
-      <Filter>External\PugiXml</Filter>
-    </Xml>
+    <Filter Include="Source">
+      <UniqueIdentifier>{802bb7d5-2e79-4249-a1a8-426e97888f3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Utils">
+      <UniqueIdentifier>{da43897b-9f00-4ffa-89dd-cdc0d67c1089}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External">
+      <UniqueIdentifier>{ca02deac-1edc-4896-a369-f4889d57fe06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Headers">
+      <UniqueIdentifier>{aa4b066e-d64b-4757-a3af-3cda582435db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Cpp">
+      <UniqueIdentifier>{7d9fcc2a-8f98-4f3f-afdd-489baea270ee}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

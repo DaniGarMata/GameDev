@@ -1,48 +1,98 @@
 #include "CheckPoint.h"
-
+#include "Textures.h"
 #include "App.h"
 #include "Render.h"
 #include "Audio.h"
 
-
-CheckPoint::CheckPoint(iPoint position_, int ID_) : Entity(EntityType::CHECKPOINT, position_)
+CheckPoint::CheckPoint(bool startEnabled) : Module(startEnabled)
 {
-	this->ID = ID_;
-	name.Create("checkpoint%i", ID);
-	anim.PushBack({ 64, 0, 32, 53 });
-	anim.PushBack({ 32, 0, 32, 53 });
-	anim.PushBack({ 0, 0, 32, 53 });
-	anim.speed = 0.1f;
-	anim.loop = false;
-	this->w = 32;
-	this->h = 53;
-	pbody = app->physics->CreateRectangleSensor(position.x, position.y, w, h, STATIC);
-	pbody->eListener = this;
-	this->active = false;
-	currentAnimation = &anim;
+	name.Create("check");
 }
 
-bool CheckPoint::IsActivated()
+CheckPoint::~CheckPoint()
 {
-	return active;
+
+	checkpoints.Clear();
 }
 
-void CheckPoint::Activate()
+bool CheckPoint::Awake(pugi::xml_node& config)
 {
-	active = true;
+	folder.Create(config.child("folder").child_value());
+	sfx.Create(config.child("sfx").child_value());
+
+	return true;
 }
 
-void CheckPoint::Update(float dt)
+bool CheckPoint::Start()
 {
-	if (this->IsActivated() && !anim.HasFinished())
-		anim.Update();
-
+	SString tmp("%s%s", folder.GetString(), "checkpoint.png");
+	SString tmp2("%s%s", sfx.GetString(), "check.wav");
+	tex = app->tex->Load(tmp.GetString());
+	SFX = app->audio->LoadFx(tmp2.GetString());
+	return true;
 }
 
-void CheckPoint::Use()
+bool CheckPoint::Update(float dt)
 {
-	this->Activate();
+	ListItem<Flag*>* f = checkpoints.start;
+
+	while (f != NULL)
+	{
+		if (f->data->isActive == false)
+		{
+			f->data->flagAnim.Update();
+		}
+		app->render->DrawTexture(tex, f->data->pos.x, f->data->pos.y, &f->data->flagAnim.GetCurrentFrame());
+
+		f = f->next;
+	}
+
+	return true;
 }
 
+bool CheckPoint::CleanUp()
+{
+	for (ListItem<Flag*>* c = checkpoints.start; c != NULL; c = c->next)
+	{
+		app->physics->world->DestroyBody(c->data->body->body);
+	}
+	app->tex->UnLoad(tex);
+	checkpoints.Clear();
+	return true;
+}
 
+void CheckPoint::OnCollision(PhysBody* bodyA, PhysBody* bodyB)
+{
+	ListItem<Flag*>* f = checkpoints.start;
 
+	while (f != NULL)
+	{
+		if (bodyA == f->data->body && f->data->isActive == true  && bodyB->listener == (Module*)app->player)
+		{
+			f->data->isActive = false;
+			
+			app->audio->PlayFx(SFX);
+			app->SaveGameRequest();
+		}
+		
+		f = f->next;
+	}
+	
+}
+
+void CheckPoint::CreateCheckpoint(int x, int y)
+{
+	Flag* f = new Flag();
+
+	f->body = app->physics->CreateRectangleSensor(x, y, 32, 53, bodyType::STATIC);
+	f->pos.x = x - 16;
+	f->pos.y = y - 27;
+	f->body->listener = this;
+	f->flagAnim.PushBack({ 64, 0, 32, 53 });
+	f->flagAnim.PushBack({ 32, 0, 32, 53 });
+	f->flagAnim.PushBack({ 0, 0, 32, 53 });
+	f->flagAnim.speed = 0.1f;
+	f->flagAnim.loop = false;
+
+	checkpoints.Add(f);
+}

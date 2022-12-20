@@ -2,57 +2,59 @@
 #define __PLAYER_H__
 
 
-#include "Entity.h"
+
+#include "Module.h"
 #include "Point.h"
 #include "Animation.h"
 #include "Box2D/Box2D/Box2D.h"
-//#include "FadeToBlack.h"
+#include "FadeToBlack.h"
 #include "List.h"
-
 struct SDL_Texture;
 
-class Player : public Entity
+
+class Player : public Module
 {
 public:
+	Player(bool startEnabled);
+	~Player();
 
-	Player(iPoint position_);
-	
-	virtual ~Player();
+	bool Awake(pugi::xml_node&);
 
-	bool Awake();
+	bool Start() override;
 
-	bool Start();
+	bool Update(float dt) override;
 
-	bool Update();
-	void Update(float dt);
-	void Use();
-	void LoadAnims();
+	bool PostUpdate() override;
 
-	bool CleanUp();
-	bool god;
-	bool dead = false;
-	bool alive;
-	bool jump;
-	bool run;
-	bool hurt;
-	bool useDownDash;
-	int abilityCD;
-	bool grounded;
+	void OnCollision(PhysBody* bodyA, PhysBody* bodyB) override;
 
-
-	int PlayerPosition;
 	bool LoadState(pugi::xml_node&);
+	bool SaveState(pugi::xml_node&) const;
 
-	bool SaveState(pugi::xml_node&);
-public:
-	
+	bool CleanUp() override;
+
+	iPoint pos;
+
+
+	int currentScene;
+	bool grounded;
+	int lives;
+	int score;
+	bool win;
+	bool die;
+	bool debug;
+	bool god;
+	bool useDownDash;
+	int superPowerCD;
+	//Player's physbody
+	PhysBody* pbody;
+	bool hurt;
+	bool hasLost = false;
 private:
 	//Jump sound
 	int jumpSFX;
-	int superJumpSFX;
+	int superPowerSFX;
 	//Jump SFX folder path
-	iPoint startPos;
-
 	SString jumpSFXFile;
 	//Variable for double jump
 	int numJumps;
@@ -61,21 +63,21 @@ private:
 	float maxVel;
 	float jumpVel;
 	//Sprite sheet folder path
-
+	SString folder;
 	//Positions where the player should spawn in diferent levels
+	iPoint scene1;
+	iPoint scene2;
 	int counterDash;
 
 	int counter;
 	//Player's b2 Body
-	b2Body* c = nullptr;
-
-	//Player texture
-	//L02: DONE 1: Declare player parameters
-	SDL_Texture* texture;
-	const char* texturePath;
+	b2Body* c;
 	
-	uint width = 32;
-	uint height = 68;
+	//Player texture
+	SDL_Texture* tex;
+	//Animations
+	Animation* currentAnimation = nullptr;
+
 	Animation idleAnimL;
 	Animation idleAnimR;
 
@@ -89,11 +91,9 @@ private:
 
 	Animation hurtAnim;
 
-	Animation abilityAnimL;
-	Animation abilityAnimR;
-
-	// L07 TODO 5: Add physics to the player - declare a Physics body
+	Animation superPowerAnimL;
+	Animation superPowerAnimR;
 
 };
 
-#endif // __PLAYER_H__
+#endif // !__PLAYER_H__

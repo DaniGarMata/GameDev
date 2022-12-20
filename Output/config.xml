@@ -1,45 +1,74 @@
+<!-- Config file for the game -->
+<!-- L01: DONE 1: Create configuration file-->
 <config>
   <app>
-    <title>Game Development Testbed</title>
+    <title>Super Mareo</title>
     <organization>UPC</organization>
+    <frcap value = "16"/>
   </app>
 
-  <renderer>
-    <vsync value="true"/>
-  </renderer>
+  <render>
+    <vsync value="false"/>
+  </render>
 
   <window>
-    <resolution width="672" height="512" scale="1"/>
+    <resolution width="1600" height="900" scale="3"/>
     <fullscreen value="false"/>
     <borderless value="false"/>
     <resizable value="false"/>
     <fullscreen_window value="false"/>
+    <folder>Assets/Mareo_WIP.png</folder>
   </window>
-
   <audio>
-    <music volume="128"/>
-    <fx volume="128"/>
+    <music value="5" />
+    <fx value="5" />
   </audio>
-
-  <!-- L02: DONE: Add an element for the entity manager and add the player parameters -->
-  <scene>
-    <player x="128" y="384" texturepath="Assets/Textures/Mareo_WIP.png"/>
-    <item x="368" y="336" texturepath="Assets/Textures/goldCoin.png"/>
-    <item x="400" y="304" texturepath="Assets/Textures/goldCoin.png"/>
-    <item x="432" y="304" texturepath="Assets/Textures/goldCoin.png"/>
-	  
-    <item x="560" y="240" texturepath="Assets/Textures/goldCoin.png"/>
-    <item x="592" y="240" texturepath="Assets/Textures/goldCoin.png"/>
-
-	<item x="720" y="240" texturepath="Assets/Textures/goldCoin.png"/>
-	<item x="752" y="240" texturepath="Assets/Textures/goldCoin.png"/>
-	<item x="784" y="240" texturepath="Assets/Textures/goldCoin.png"/>
-
-  </scene>
-
+  <check>
+    <folder>Assets/textures/</folder>
+    <sfx>Assets/audio/fx/</sfx>
+  </check>
+  <collect>
+    <folder>Assets/textures/sprites/collectables.png</folder>
+    <sfx>Assets/audio/fx/</sfx>
+  </collect>
+  <player>
+    <folder>Assets/textures/sprites/Mareo.png</folder>
+    <jump_SFX>Assets/audio/fx/</jump_SFX>
+    <num_jumps value="2"/>
+    <min_vel value="2.5f"/>
+    <max_vel value="5.0f"/>
+    <jump_vel value="-5.0f"/>
+    <start value="1"/>
+    <scene1 x="23" y="837" />
+    <scene2 x="20" y="100" />
+  </player>
+  <ui>
+    <folder>Assets/textures/UI/</folder>
+  </ui>
+  <enemies>
+    <folder>Assets/textures/sprites/</folder>
+    <sfx>Assets/audio/fx/</sfx>
+  </enemies>
+  <!-- L03: Added maps folder as config option -->
   <map>
-    <mapfolder path="Assets/Maps/"/>
-    <mapfile path="Assets/Maps/SuperMareoMap.tmx"/>
+    <folder>Assets/maps/</folder>
   </map>
-  
+  <intro>
+    <audio>Assets/audio/</audio>
+    <folder>Assets/maps/</folder>
+  </intro>
+  <scene>
+    <audio>Assets/audio/</audio>
+    <folder>Assets/maps/</folder>
+    <winX value="2359"></winX>
+  </scene>
+  <scene2>
+    <audio>Assets/audio/</audio>
+    <folder>Assets/maps/</folder>
+    <winX value="2359"></winX>
+  </scene2>
+  <death>
+    <audio>Assets/audio/</audio>
+    <folder>Assets/maps/</folder>
+  </death>
 </config>

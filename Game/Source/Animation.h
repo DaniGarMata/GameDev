@@ -18,7 +18,6 @@ private:
 	int totalFrames = 0;
 	int loopCount = 0;
 	int pingpongDirection = 1;
-	bool mustFlip = false;
 
 public:
 

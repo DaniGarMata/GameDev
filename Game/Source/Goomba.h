@@ -3,13 +3,12 @@
 class Goomba : public Enemy
 {
 public:
-	Goomba(iPoint position_, Entity* target, int ID);
+	Goomba();
+	~Goomba();
 
 	void Update(float dt);
 	void ComputePath(float dt);
 	void MoveToPlayer(iPoint destination, float dt);
-
-
 
 	int counterJump;
 	bool canJump;

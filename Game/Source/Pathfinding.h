@@ -1,4 +1,3 @@
-
 #ifndef __PATHFINDING_H__
 #define __PATHFINDING_H__
 
@@ -103,3 +102,4 @@ struct PathList
 };
 
 #endif // __PATHFINDING_H__
+

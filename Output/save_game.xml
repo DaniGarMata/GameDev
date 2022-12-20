@@ -1,14 +1,44 @@
 <?xml version="1.0"?>
-<save_state>
-	<input />
+<game_state>
 	<window />
+	<input />
 	<textures />
-	<audio />
+	<audio>
+		<music value="128" />
+		<fx value="128" />
+	</audio>
 	<:anonymous />
+	<:anonymous />
+	<pathfinding />
+	<intro />
+	<death />
 	<scene />
-	<entitymanager />
+	<scene2 />
+	<:anonymous />
 	<map />
-	<renderer>
-		<camera x="-779" y="-8" />
-	</renderer>
-</save_state>
+	<ui />
+	<collect />
+	<check />
+	<enemies>
+		<entity type="0" x="1187" y="423" health="1" />
+		<entity type="0" x="1411" y="487" health="1" />
+		<entity type="0" x="1683" y="240" health="1" />
+		<entity type="0" x="1827" y="672" health="1" />
+		<entity type="0" x="1875" y="496" health="1" />
+		<entity type="0" x="2307" y="224" health="1" />
+		<entity type="-1" x="1456" y="705" health="1" />
+		<entity type="-1" x="1576" y="693" health="1" />
+		<entity type="-1" x="1733" y="549" health="1" />
+		<entity type="-1" x="1942" y="229" health="1" />
+		<entity type="-1" x="1960" y="693" health="1" />
+		<entity type="-1" x="2262" y="485" health="1" />
+	</enemies>
+	<player>
+		<pos x="1259" y="803" />
+		<start value="1" />
+		<values lives="3" score="160" />
+	</player>
+	<render>
+		<camera x="-2981" y="-1810" />
+	</render>
+</game_state>
