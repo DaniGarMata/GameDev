@@ -34,7 +34,7 @@ DEBUG MODE
  - Arrow keywords -> Move the camera
 
 ## Developers
-
+Group 12 of CITM Barcelona Game development subject
  - Dani Garcia Mata - Developer [Dani Garcia](https://github.com/DaniGarMata).
  - Ogylandy Yespagambetov - Developer [Oga](https://github.com/Oga29)
 
