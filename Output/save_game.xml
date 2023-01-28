@@ -20,8 +20,10 @@
 	<collect />
 	<check />
 	<enemies>
-		<entity type="0" x="1187" y="423" health="1" />
-		<entity type="0" x="1411" y="487" health="1" />
+		<entity type="0" x="963" y="610" health="1" />
+		<entity type="0" x="995" y="784" health="1" />
+		<entity type="0" x="1187" y="418" health="1" />
+		<entity type="0" x="1411" y="482" health="1" />
 		<entity type="0" x="1683" y="240" health="1" />
 		<entity type="0" x="1827" y="672" health="1" />
 		<entity type="0" x="1875" y="496" health="1" />
@@ -34,11 +36,11 @@
 		<entity type="-1" x="2262" y="485" health="1" />
 	</enemies>
 	<player>
-		<pos x="1259" y="803" />
+		<pos x="566" y="603" />
 		<start value="1" />
-		<values lives="3" score="160" />
+		<values lives="2" score="40" />
 	</player>
 	<render>
-		<camera x="-2981" y="-1810" />
+		<camera x="-896" y="-1355" />
 	</render>
 </game_state>

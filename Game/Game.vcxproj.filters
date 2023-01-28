@@ -85,18 +85,6 @@
     <ClCompile Include="Source\Enemy.cpp">
       <Filter>Source\Cpp</Filter>
     </ClCompile>
-    <ClCompile Include="Source\GuiButton.cpp">
-      <Filter>Source\Cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GuiCheck.cpp">
-      <Filter>Source\Cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GuiManager.cpp">
-      <Filter>Source\Cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GuiSlidder.cpp">
-      <Filter>Source\Cpp</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Animation.h">
@@ -202,21 +190,6 @@
       <Filter>Source\Headers</Filter>
     </ClInclude>
     <ClInclude Include="Source\App.h">
-      <Filter>Source\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GuiButton.h">
-      <Filter>Source\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GuiCheck.h">
-      <Filter>Source\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GUIControl.h">
-      <Filter>Source\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GuiManager.h">
-      <Filter>Source\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GuiSlidder.h">
       <Filter>Source\Headers</Filter>
     </ClInclude>
   </ItemGroup>
