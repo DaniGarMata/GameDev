@@ -100,7 +100,15 @@ private:
 	bool SaveGame() const;
 
 public:
-
+	//settings
+	bool debug = false;
+	bool hasLost = false;
+	bool win_ = false;
+	bool die = false;
+	bool hasLoaded = false;
+	bool canContinue = false;
+	int currentScene = 1;
+	
 	// Modules
 	Window* win;
 	Input* input;
