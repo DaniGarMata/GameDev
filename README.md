@@ -7,10 +7,13 @@ A parody platformer made with XML and TMXL
 ## Key Features
 
  - Movement with the keyboard
- - Collectables(coins and health mushrooms)
+ - Collectables (coins and health mushrooms)
  - Double jump
- - superPower ability(just a super Jump, might be changed later)
- - Two playable levels(both the same at the current state)
+ - SuperPower ability (just a super Jump, might be changed later)
+ - Two playable levels
+ - Graphical User Interface
+ - Toggleable fullscreen, VSync
+ - Music & FX volume sliders
  
 ## Controls
 
