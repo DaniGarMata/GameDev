@@ -1,4 +1,50 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(500,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  App.cpp
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(54,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(56,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(24,11): warning C4244: '=': conversion from 'float' to 'TYPE', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(25,11): warning C4244: '=': conversion from 'float' to 'TYPE', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(30,15): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(49,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(49,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(49,15): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(64,24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(65,25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\App.cpp(209,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\App.cpp(241,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\App.cpp(247,47): warning C4244: 'argument': conversion from 'float' to 'Uint32', possible loss of data
+  Audio.cpp
+  Bullet.cpp
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(54,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(56,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(24,11): warning C4244: '=': conversion from 'float' to 'TYPE', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(25,11): warning C4244: '=': conversion from 'float' to 'TYPE', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(30,15): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(49,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(49,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(49,15): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(64,24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(65,25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Bullet.cpp(64,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Bullet.cpp(104,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Bullet.cpp(109,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Bullet.cpp(126,15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   CheckPoint.cpp
 C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(54,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
 C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(56,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
@@ -49,37 +95,9 @@ C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemies.cpp(208,24): warning 
           [
               TYPE=int
           ]
-  Intro.cpp
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(54,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(56,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  App.cpp
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(54,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(56,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(24,11): warning C4244: '=': conversion from 'float' to 'TYPE', possible loss of data
-          with
-          [
-              TYPE=int
-          ]
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(25,11): warning C4244: '=': conversion from 'float' to 'TYPE', possible loss of data
-          with
-          [
-              TYPE=int
-          ]
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(30,15): warning C4018: '<': signed/unsigned mismatch
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(49,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(49,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(49,15): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(64,24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(65,25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\App.cpp(209,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\App.cpp(241,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\App.cpp(247,47): warning C4244: 'argument': conversion from 'float' to 'Uint32', possible loss of data
-  Audio.cpp
-  Player.cpp
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(54,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(56,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Player.cpp(134,20): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Player.cpp(135,21): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  FadeToBlack.cpp
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\FadeToBlack.cpp(81,19): warning C4244: '=': conversion from 'float' to 'Uint32', possible loss of data
+  Fonts.cpp
   Goomba.cpp
 C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(54,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
 C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(56,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
@@ -103,6 +121,109 @@ C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Goomba.cpp(69,13): warning C4
 C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Goomba.cpp(109,22): warning C4018: '<': signed/unsigned mismatch
 C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Goomba.cpp(114,21): warning C4018: '<': signed/unsigned mismatch
 C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Goomba.cpp(136,15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Input.cpp
+  Intro.cpp
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(54,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(56,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Main.cpp
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Main.cpp(38,8): warning C4101: 'RealFPS': unreferenced local variable
+  Map.cpp
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(54,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(56,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(24,11): warning C4244: '=': conversion from 'float' to 'TYPE', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(25,11): warning C4244: '=': conversion from 'float' to 'TYPE', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(30,15): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(49,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(49,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(49,15): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(64,24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(65,25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Map.cpp(312,47): warning C4244: 'argument': conversion from 'TYPE' to 'float', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Map.cpp(312,40): warning C4244: 'argument': conversion from 'TYPE' to 'float', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Map.cpp(335,51): warning C4244: 'argument': conversion from 'TYPE' to 'float', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Map.cpp(335,44): warning C4244: 'argument': conversion from 'TYPE' to 'float', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Map.cpp(358,51): warning C4244: 'argument': conversion from 'TYPE' to 'float', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Map.cpp(358,44): warning C4244: 'argument': conversion from 'TYPE' to 'float', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Map.cpp(381,51): warning C4244: 'argument': conversion from 'TYPE' to 'float', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Map.cpp(381,44): warning C4244: 'argument': conversion from 'TYPE' to 'float', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+  Pathfinding.cpp
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Point.h(125,26): warning C4244: 'argument': conversion from 'TYPE' to 'float', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Point.h(121): message : while compiling class template member function 'TYPE Point<TYPE>::DistanceTo(const Point<TYPE> &) const'
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Pathfinding.cpp(162): message : see reference to function template instantiation 'TYPE Point<TYPE>::DistanceTo(const Point<TYPE> &) const' being compiled
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\PathFinding.h(73): message : see reference to class template instantiation 'Point<int>' being compiled
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Point.h(125,15): warning C4244: 'return': conversion from 'float' to 'TYPE', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+  Physics.cpp
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(54,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(56,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Physics.cpp(89,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Physics.cpp(90,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Physics.cpp(141,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Physics.cpp(313,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Physics.cpp(314,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Physics.cpp(320,27): warning C4244: 'return': conversion from 'float32' to 'int', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Physics.cpp(366,44): warning C4305: '=': truncation from 'double' to 'float32'
+  Player.cpp
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(54,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(56,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Player.cpp(134,20): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Player.cpp(135,21): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Render.cpp
   Scene.cpp
 C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(54,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
 C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(56,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
@@ -142,6 +263,12 @@ C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(49,15): warning C4244
 C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(64,24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(65,25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Scene2.cpp(119,56): warning C4305: 'argument': truncation from 'float' to 'bool'
+  Generating Code...
+  Compiling...
+  Textures.cpp
+  UI.cpp
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(54,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(56,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
   Window.cpp
   Generating Code...
   Game.vcxproj -> C:\Users\ASUS\Documents\GitHub\GameDev\Build\Debug\Game.exe
