@@ -4,6 +4,9 @@
 #include "Module.h"
 #include "Animation.h"
 #include "App.h"
+#include "GuiButton.h"
+#include "GuiCheck.h"
+#include "GuiSlidder.h"
 
 struct SDL_Texture;
 class UI : public Module
@@ -15,23 +18,61 @@ public:
 
 	bool Start();
 
+	bool Update();
+
 	bool PostUpdate();
 
 	bool CleanUp();
 
+	void AddScore(int score);
 
+	void ResetScore();
+
+	bool LoadState(pugi::xml_node&);
+
+	bool SaveState(pugi::xml_node&);
+	// Define multiple Gui Event methods
+	bool OnGuiMouseClickEvent(GuiControl* control);
 private:
-	SDL_Texture* health;
+	SDL_Texture* mushroom;
 	SDL_Texture* coin;
 	SDL_Texture* anim;
-	
+	SDL_Texture* originTex;
+	SDL_Texture* pausetex;
+	SDL_Texture* settings;
+
+	bool onPause = true;
+
+	int counter = 0;
+	float seconds = 0;
+	int minutes = 0;
+	int score = 0;
 	int font;
+	int scoreMult = 1;
 
 	Animation healthAnim;
 	Animation coinAnim;
 	Animation abAnim;
 
+	int highScore = 0;
+
 	SString folder;
+	SString guiFile;
+
+	bool settingsShow = false;
+	bool pauseShow = false;
+
+	GuiButton* btn1;
+	GuiButton* btn2;
+	GuiButton* btn3;
+	GuiButton* btn4;
+	GuiButton* btn5;
+
+	GuiCheck* check1;
+	GuiCheck* check2;
+
+	GuiSlidder* slid1;
+	GuiSlidder* slid2;
 };
 
 #endif // __UI_H__

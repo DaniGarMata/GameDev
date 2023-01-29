@@ -9,13 +9,13 @@
 #include "Physics.h"
 #include "Player.h"
 #include "FadeToBlack.h"
-#include "Enemies.h"
 #include "UI.h"
 #include "Defs.h"
 #include "Log.h"
 #include "CheckPoint.h"
 #include "Pathfinding.h"
-#include "Collectables.h"
+#include "EntityManager.h"
+#include "GuiManager.h"
 
 Scene::Scene(bool startEnabled) : Module(startEnabled)
 {
@@ -33,7 +33,8 @@ bool Scene::Awake(pugi::xml_node& config)
 	bool ret = true;
 	folder.Create(config.child("folder").child_value());
 	audioFile.Create(config.child("audio").child_value());
-	winX = config.child("winX").attribute("value").as_int();
+	startX = config.child("startX").attribute("value").as_int();
+	startY = config.child("startY").attribute("value").as_int();
 	LOG("%s", folder.GetString());
 	return ret;
 }
@@ -42,19 +43,20 @@ bool Scene::Awake(pugi::xml_node& config)
 bool Scene::Start()
 {
 	SString tmp("%s%s", folder.GetString(),"background.png");
-	
+
 	SString tmp3("%s%s", audioFile.GetString(), "music/Gourment-Race.wav");
 	app->audio->PlayMusic(tmp3.GetString());
-	// = app->tex->Load(tmp.GetString());
+	background = app->tex->Load(tmp.GetString());
 	
-	LOG("%s", tmp.GetString());
+	app->currentScene = 1;
+	app->entman->Start();
 	app->physics->Enable();
-	app->player->Enable();
-	app->check->Enable();
-	app->collect->Enable();
-	app->enemies->Enable();
 	app->map->Enable();
-	app->player->currentScene = 1;
+	app->pathfinding->Enable();
+	app->ui->Enable();
+	Player* player = (Player*)app->entman->CreateEntity(PLAYER, iPoint{ startX, startY });
+	app->entman->SetPlayer(player);
+	app->die = false;
 	if (app->map->Load("map.tmx") == true)
 	{
 		int w, h;
@@ -67,32 +69,40 @@ bool Scene::Start()
 
 		RELEASE_ARRAY(data);
 	}
-	
-	if (app->player->hasLost)
+	if (app->hasLost)
 	{
 		app->LoadGameRequest();
 	}
+
+	app->entman->Enable();
+
+	if (app->hasLoaded && app->canContinue)
+	{
+		app->LoadGameRequest();
+		app->canContinue = false;
+	}
+
+	
 	return true;
 }
 
 // Called each loop iteration
 bool Scene::PreUpdate()
 {
-
 	return true;
 }
 
 // Called each loop iteration
 bool Scene::Update(float dt)
 {
-	
+	LOG("%i\n", app->currentScene);
 
 	if(app->input->GetKey(SDL_SCANCODE_F5) == KEY_DOWN)
 		app->SaveGameRequest();
 
 	if(app->input->GetKey(SDL_SCANCODE_F6) == KEY_DOWN)
 		app->LoadGameRequest();
-	if (app->player->debug)
+	if (app->debug)
 	{
 		if (app->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
 			app->render->camera.y += 30;
@@ -106,36 +116,29 @@ bool Scene::Update(float dt)
 		if (app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
 			app->render->camera.x -= 30;
 	}
-	if (app->player->pos.x == winX || app->input->GetKey(SDL_SCANCODE_F2) == KEY_DOWN || app->player->currentScene == 2)
+	if (app->input->GetKey(SDL_SCANCODE_F2) == KEY_DOWN || app->currentScene == 2)
 	{
 		app->fadeToBlack->MFadeToBlack(this, (Module*)app->scene2);
-		app->player->currentScene = 2;
 	}
 	
-	if (app->input->GetKey(SDL_SCANCODE_F4) == KEY_DOWN || app->player->die)
+	if (app->input->GetKey(SDL_SCANCODE_F4) == KEY_DOWN || app->die)
 	{
 		app->fadeToBlack->MFadeToBlack(this, (Module*)app->death);
-		app->player->die = true;
+		app->die = true;
 		
 	}
 	if (app->input->GetKey(SDL_SCANCODE_F7) == KEY_DOWN)
 	{
 		app->fadeToBlack->MFadeToBlack(this, (Module*)app->death);
-		app->player->win = true;
+		app->win_ = true;
 	}
 
 
 	// Draw map
 	app->render->DrawTexture(background, 0,0, NULL, false,0.75f);
-	
+	app->render->DrawTexture(jungle, 0, 284, NULL,false , 0.5f);
 	app->map->Draw();
 
-	
-
-	
-
-	
-	
 	return true;
 }
 
@@ -144,23 +147,22 @@ bool Scene::PostUpdate()
 {
 	bool ret = true;
 
-	if(app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
-		ret = false;
 
 	return ret;
 }
+
+
 
 // Called before quitting
 bool Scene::CleanUp()
 {
 	LOG("Freeing scene");
 	app->tex->UnLoad(background);
-	app->player->Disable();
+	app->tex->UnLoad(jungle);
 	app->map->Unload();
 	app->map->Disable();
-	app->enemies->Disable();
-	app->check->Disable();
-	app->collect->Disable();
+	app->entman->DestroyAllEntities();
 	app->physics->Disable();
+	app->ui->Disable();
 	return true;
 }

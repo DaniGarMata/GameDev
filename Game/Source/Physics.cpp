@@ -20,6 +20,7 @@
 
 Physics::Physics(bool startEnabled) : Module(startEnabled)
 {
+	name.Create("physics");
 	world = NULL;
 	mouse_joint = NULL;
 
@@ -52,7 +53,7 @@ bool Physics::PreUpdate()
 		{
 			PhysBody* pb1 = (PhysBody*)c->GetFixtureA()->GetBody()->GetUserData();
 			PhysBody* pb2 = (PhysBody*)c->GetFixtureB()->GetBody()->GetUserData();
-			if (pb1 && pb2 && pb1->listener)
+			if (pb1 && pb2 && pb1->listener && pb1->body->IsActive() && pb2->body->IsActive())
 				pb1->listener->OnCollision(pb1, pb2);
 		}
 	}
@@ -78,7 +79,8 @@ PhysBody* Physics::CreateRectangle(int x, int y, int width, int height, bodyType
 
 	b2FixtureDef fixture;
 	fixture.shape = &box;
-	fixture.density = 1.0f;
+	fixture.density = 20.0f;
+	fixture.friction = 10.0f;
 	b->ResetMassData();
 
 	b->CreateFixture(&fixture);
@@ -168,7 +170,7 @@ bool Physics::PostUpdate()
 	
 	// Bonus code: this will iterate all objects in the world and draw the circles
 	// You need to provide your own macro to translate meters to pixels
-	if (app->player->debug)
+	if (app->debug)
 	{
 		for (b2Body* b = world->GetBodyList(); b; b = b->GetNext())
 		{

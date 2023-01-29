@@ -8,19 +8,17 @@
 #include "Scene.h"
 #include "Death.h"
 #include "Map.h"
-#include "Player.h"
 #include "Physics.h"
 #include "Intro.h"
 #include "FadeToBlack.h"
-#include "Pathfinding.h"	
+#include "Pathfinding.h"
 #include "UI.h"
-#include "Enemies.h"
-#include "CheckPoint.h"
+#include "EntityManager.h"
 #include "Fonts.h"
-#include "Collectables.h"
 #include "Scene2.h"
 #include "Defs.h"
 #include "Log.h"
+#include "GuiManager.h"
 
 
 #include <iostream>
@@ -42,14 +40,12 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	death = new Death(false);
 	pathfinding = new PathFinding(false);
 	map = new Map(true);
-	check = new CheckPoint(false);
 	fonts = new Fonts(true);
 	ui = new UI(false);
-	enemies = new Enemies(false);
-	collect = new Collectables(false);
-	player = new Player(false);
 	physics = new Physics(true);
 	scene2 = new Scene2(false);
+	entman = new EntityManager(true);
+	guiManager = new GuiManager(true);
 
 
 	// Ordered for awake / Start / Update
@@ -67,11 +63,9 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(scene2);
 	AddModule(fonts);
 	AddModule(map);
+	AddModule(entman);
 	AddModule(ui);
-	AddModule(collect);
-	AddModule(check);
-	AddModule(enemies);
-	AddModule(player);
+	AddModule(guiManager);
 	// Render last to swap buffer
 	AddModule(render);
 
@@ -120,7 +114,7 @@ bool App::Awake()
 		// L01: DONE 4: Read the title from the config file
 		title.Create(configApp.child("title").child_value());
 		organization.Create(configApp.child("organization").child_value());
-
+	
 		// L08: DONE 1: Read from config file your framerate cap
 		maxFrameRate = configApp.child("frcap").attribute("value").as_int();
 	}
@@ -199,9 +193,12 @@ pugi::xml_node App::LoadConfig(pugi::xml_document& configFile) const
 	return ret;
 }
 
+
+
 // ---------------------------------------------
 void App::PrepareUpdate()
 {
+	OPTICK_EVENT();
 	frameCount++;
 	lastSecFrameCount++;
 
@@ -219,9 +216,11 @@ void App::PrepareUpdate()
 // ---------------------------------------------
 void App::FinishUpdate()
 {
+	OPTICK_EVENT();
 	// L02: DONE 1: This is a good place to call Load / Save methods
 	if (loadGameRequested == true) LoadGame();
 	if (saveGameRequested == true) SaveGame();
+
 
 
 	float secondsSinceStartup = startupTime.ReadSec();
@@ -242,17 +241,19 @@ void App::FinishUpdate()
 	//LOG("F: %f Delay:%f", frameDuration->ReadMs(), delay);
 
 	// L08: DONE 3: Measure accurately the amount of time SDL_Delay() actually waits compared to what was expected
-	PerfTimer* delayt = new PerfTimer();
-	delayt->Start();
-	if (maxFrameRate > 0 && delay > 0) SDL_Delay(delay);
-	LOG("Expected %f milliseconds and the real delay is % f", delay, delayt->ReadMs());
-
+	if (!app->render->vsync) {
+		PerfTimer* delayt = new PerfTimer();
+		delayt->Start();
+		if (maxFrameRate > 0 && delay > 0) SDL_Delay(delay);
+		LOG("Expected %f milliseconds and the real delay is % f", delay, delayt->ReadMs());
+	}
 	app->win->SetTitle(title);
 }
 
 // Call modules before each loop iteration
 bool App::PreUpdate()
 {
+	OPTICK_EVENT();
 	bool ret = true;
 	ListItem<Module*>* item;
 	item = modules.start;
@@ -275,6 +276,7 @@ bool App::PreUpdate()
 // Call modules on each loop iteration
 bool App::DoUpdate()
 {
+	OPTICK_EVENT();
 	bool ret = true;
 	ListItem<Module*>* item;
 	item = modules.start;
@@ -290,13 +292,13 @@ bool App::DoUpdate()
 		if (item->data->IsEnabled())
 			ret = item->data->Update(dt);
 	}
-
 	return ret;
 }
 
 // Call modules after each loop iteration
 bool App::PostUpdate()
 {
+	OPTICK_EVENT();
 	bool ret = true;
 	ListItem<Module*>* item;
 	Module* pModule = NULL;
@@ -373,6 +375,8 @@ void App::SaveGameRequest() const
 	saveGameRequested = true;
 }
 
+
+
 // ---------------------------------------
 // L02: DONE 5: Create a method to actually load an xml file
 // then call all the modules to load themselves
@@ -381,12 +385,13 @@ bool App::LoadGame()
 	bool ret = true;
 
 	pugi::xml_parse_result result = gameStateFile.load_file("save_game.xml");
-	
+
 	if (result == NULL)
 	{
 		LOG("Could not load map xml file config.xml. pugi error: %s", result.description());
 		ret = false;
 	}
+	
 
 	ListItem<Module*>* item;
 	item = modules.start;
@@ -399,6 +404,7 @@ bool App::LoadGame()
 
 	loadGameRequested = false;
 
+
 	return ret;
 }
 
@@ -409,6 +415,8 @@ bool App::SaveGame() const
 
 	pugi::xml_document* saveDoc = new pugi::xml_document();
 	pugi::xml_node saveStateNode = saveDoc->append_child("game_state");
+
+	
 
 	ListItem<Module*>* item;
 	item = modules.start;
@@ -421,9 +429,10 @@ bool App::SaveGame() const
 	ret = saveDoc->save_file("save_game.xml");
 
 	saveGameRequested = false;
-
 	return ret;
 }
+
+
 
 
 

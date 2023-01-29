@@ -13,77 +13,92 @@
     <ClCompile Include="Source\Timer.cpp">
       <Filter>Source\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Player.cpp">
-      <Filter>Source\Cpp</Filter>
+    <ClCompile Include="Source\GuiButton.cpp">
+      <Filter>Source\cpp</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Scene2.cpp">
-      <Filter>Source\Cpp</Filter>
+    <ClCompile Include="Source\GuiCheck.cpp">
+      <Filter>Source\cpp</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Scene.cpp">
-      <Filter>Source\Cpp</Filter>
+    <ClCompile Include="Source\GuiManager.cpp">
+      <Filter>Source\cpp</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Intro.cpp">
-      <Filter>Source\Cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Death.cpp">
-      <Filter>Source\Cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Collectables.cpp">
-      <Filter>Source\Cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CheckPoint.cpp">
-      <Filter>Source\Cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Goomba.cpp">
-      <Filter>Source\Cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Enemies.cpp">
-      <Filter>Source\Cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Bullet.cpp">
-      <Filter>Source\Cpp</Filter>
+    <ClCompile Include="Source\GuiSlidder.cpp">
+      <Filter>Source\cpp</Filter>
     </ClCompile>
     <ClCompile Include="Source\Audio.cpp">
-      <Filter>Source\Cpp</Filter>
+      <Filter>Source\cpp</Filter>
     </ClCompile>
     <ClCompile Include="Source\FadeToBlack.cpp">
-      <Filter>Source\Cpp</Filter>
+      <Filter>Source\cpp</Filter>
     </ClCompile>
     <ClCompile Include="Source\Fonts.cpp">
-      <Filter>Source\Cpp</Filter>
+      <Filter>Source\cpp</Filter>
     </ClCompile>
     <ClCompile Include="Source\Input.cpp">
-      <Filter>Source\Cpp</Filter>
+      <Filter>Source\cpp</Filter>
     </ClCompile>
     <ClCompile Include="Source\Map.cpp">
-      <Filter>Source\Cpp</Filter>
+      <Filter>Source\cpp</Filter>
     </ClCompile>
     <ClCompile Include="Source\Pathfinding.cpp">
-      <Filter>Source\Cpp</Filter>
+      <Filter>Source\cpp</Filter>
     </ClCompile>
     <ClCompile Include="Source\Physics.cpp">
-      <Filter>Source\Cpp</Filter>
+      <Filter>Source\cpp</Filter>
     </ClCompile>
     <ClCompile Include="Source\Render.cpp">
-      <Filter>Source\Cpp</Filter>
+      <Filter>Source\cpp</Filter>
     </ClCompile>
     <ClCompile Include="Source\Textures.cpp">
-      <Filter>Source\Cpp</Filter>
+      <Filter>Source\cpp</Filter>
     </ClCompile>
     <ClCompile Include="Source\UI.cpp">
-      <Filter>Source\Cpp</Filter>
+      <Filter>Source\cpp</Filter>
     </ClCompile>
     <ClCompile Include="Source\Window.cpp">
-      <Filter>Source\Cpp</Filter>
+      <Filter>Source\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Bullet.cpp">
+      <Filter>Source\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Goomba.cpp">
+      <Filter>Source\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\EntityManager.cpp">
+      <Filter>Source\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Player.cpp">
+      <Filter>Source\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CheckPoint.cpp">
+      <Filter>Source\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Mushroom.cpp">
+      <Filter>Source\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Door.cpp">
+      <Filter>Source\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Coin.cpp">
+      <Filter>Source\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Death.cpp">
+      <Filter>Source\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Intro.cpp">
+      <Filter>Source\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene.cpp">
+      <Filter>Source\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene2.cpp">
+      <Filter>Source\cpp</Filter>
     </ClCompile>
     <ClCompile Include="Source\App.cpp">
-      <Filter>Source\Cpp</Filter>
+      <Filter>Source\cpp</Filter>
     </ClCompile>
     <ClCompile Include="Source\Main.cpp">
-      <Filter>Source\Cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Enemy.cpp">
-      <Filter>Source\Cpp</Filter>
+      <Filter>Source\cpp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -120,43 +135,19 @@
     <ClInclude Include="Source\Perftimer.h">
       <Filter>Source\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Module.h">
+    <ClInclude Include="Source\GuiButton.h">
       <Filter>Source\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Player.h">
+    <ClInclude Include="Source\GuiCheck.h">
       <Filter>Source\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Scene2.h">
+    <ClInclude Include="Source\GUIControl.h">
       <Filter>Source\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Scene.h">
+    <ClInclude Include="Source\GuiManager.h">
       <Filter>Source\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Intro.h">
-      <Filter>Source\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Death.h">
-      <Filter>Source\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Collectables.h">
-      <Filter>Source\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CheckPoint.h">
-      <Filter>Source\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Goomba.h">
-      <Filter>Source\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Enemy.h">
-      <Filter>Source\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Enemies.h">
-      <Filter>Source\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Bullet.h">
-      <Filter>Source\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Window.h">
+    <ClInclude Include="Source\GuiSlidder.h">
       <Filter>Source\Headers</Filter>
     </ClInclude>
     <ClInclude Include="Source\Audio.h">
@@ -189,6 +180,54 @@
     <ClInclude Include="Source\UI.h">
       <Filter>Source\Headers</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Window.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Module.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Bullet.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Goomba.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Entity.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Player.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\EntityManager.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CheckPoint.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Mushroom.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Door.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Coin.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Death.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Intro.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene2.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
     <ClInclude Include="Source\App.h">
       <Filter>Source\Headers</Filter>
     </ClInclude>
@@ -211,11 +250,11 @@
     <Filter Include="External">
       <UniqueIdentifier>{ca02deac-1edc-4896-a369-f4889d57fe06}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Headers">
-      <UniqueIdentifier>{aa4b066e-d64b-4757-a3af-3cda582435db}</UniqueIdentifier>
+    <Filter Include="Source\cpp">
+      <UniqueIdentifier>{b6550715-a06c-45f1-9ba9-837b6f864954}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Cpp">
-      <UniqueIdentifier>{7d9fcc2a-8f98-4f3f-afdd-489baea270ee}</UniqueIdentifier>
+    <Filter Include="Source\Headers">
+      <UniqueIdentifier>{b3df65c9-5d9b-4ed2-a961-d940ec017bce}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

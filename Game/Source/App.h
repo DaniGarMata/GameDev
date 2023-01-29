@@ -21,13 +21,12 @@ class Audio;
 class Scene;
 class Map;
 class Physics;
-class Player;
 class FadeToBlack;
 class PathFinding;
-class CheckPoint;
+
+class GuiManager;
 class UI;
-class Collectables;
-class Enemies;
+class EntityManager;
 class Fonts;
 class Intro;
 
@@ -80,6 +79,7 @@ private:
 	// NOTE: It receives config document
 	pugi::xml_node LoadConfig(pugi::xml_document&) const;
 
+
 	// Call modules before each loop iteration
 	void PrepareUpdate();
 
@@ -99,8 +99,10 @@ private:
 	bool LoadGame();
 	bool SaveGame() const;
 
+
+
 public:
-	//settings
+	// Settings
 	bool debug = false;
 	bool hasLost = false;
 	bool win_ = false;
@@ -109,6 +111,7 @@ public:
 	bool canContinue = false;
 	int currentScene = 1;
 	
+	bool pause = false;
 	// Modules
 	Window* win;
 	Input* input;
@@ -117,18 +120,17 @@ public:
 	Audio* audio;
 	Scene* scene;
 	Map* map;
-	Player* player;
 	Physics* physics;
 	FadeToBlack* fadeToBlack;
 	PathFinding* pathfinding;
 	UI* ui;
-	Enemies* enemies;
-	Collectables* collect;
-	CheckPoint* check;
+	GuiManager* guiManager;
+	EntityManager* entman;
 	Fonts* fonts;
 	Intro* intro;
 	Scene2* scene2;
 	Death* death;
+
 
 	bool fpsCap = false;
 	float dt = 0.0f;
@@ -154,6 +156,7 @@ private:
 	// L02: DONE 1: Create variables to control when to execute the request load / save
 	mutable bool saveGameRequested;
 	bool loadGameRequested;
+
 
 
 	PerfTimer* ptimer;

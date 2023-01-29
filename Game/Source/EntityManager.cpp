@@ -4,13 +4,16 @@
 #include "CheckPoint.h"
 #include "Goomba.h"
 #include "Player.h"
-#include "Entity.h"
+#include "CheckPoint.h"
 #include "Bullet.h"
+#include "Mushroom.h"
 #include "Coin.h"
+#include "Door.h"
 #include "Audio.h"
 #include "Window.h"
 #include "Render.h"
 #include "Log.h"
+#include "UI.h"
 #include "Textures.h"
 
 EntityManager::EntityManager(bool startEnabled) : Module(startEnabled)
@@ -18,14 +21,11 @@ EntityManager::EntityManager(bool startEnabled) : Module(startEnabled)
 	name.Create("entities");
 }
 
-
-// Destructor
 EntityManager::~EntityManager()
 {
 	CleanUp();
 }
 
-// Called before render is available
 bool EntityManager::Awake(pugi::xml_node& config)
 {
 	folder.Create(config.child("folder").child_value());
@@ -38,18 +38,18 @@ bool EntityManager::Start()
 {
 	//Loading sprites
 	SString pathPlayer("%s%s", folder.GetString(), "Mareo.png");
-	SString pathEnemies("%s%s", folder.GetString(), "Gooma.png");
-	SString pathCollect("%s%s", folder.GetString(), "goldCoin.png");
-	SString pathCheck("%s%s", folder.GetString(), "Flag.png");
+	SString pathEnemies("%s%s", folder.GetString(), "enemies_mareo.png");
+	SString pathCollect("%s%s", folder.GetString(), "collectables.png");
+	SString pathCheck("%s%s", folder.GetString(), "checkpoint.png");
 	SString pathPath("%s%s", folder.GetString(), "nav.png");
 
 	SString jumpPath("%s%s", audio.GetString(), "Jump.wav");
-	//SString superJumpPath("%s%s", audio.GetString(), "superJump.wav");
-	SString coinPath("%s%s", audio.GetString(), "Coin.wav");
-	//SString checkPath("%s%s", audio.GetString(), "check.wav");
+	SString superJumpPath("%s%s", audio.GetString(), "superPower.wav");
+	SString cherryPath("%s%s", audio.GetString(), "mushroom.wav");
+	SString checkPath("%s%s", audio.GetString(), "check.wav");
 	SString enemyPath("%s%s", audio.GetString(), "enemy.wav");
-	//SString gemPath("%s%s", audio.GetString(), "gem.wav");
-	//SString hurtPath("%s%s", audio.GetString(), "playerHurt.wav");
+	SString gemPath("%s%s", audio.GetString(), "Coin.wav");
+	SString hurtPath("%s%s", audio.GetString(), "damage.wav");
 	playerTex = app->tex->Load(pathPlayer.GetString());
 	enemiesTex = app->tex->Load(pathEnemies.GetString());
 	checkTex = app->tex->Load(pathCheck.GetString());
@@ -57,19 +57,17 @@ bool EntityManager::Start()
 	path = app->tex->Load(pathPath.GetString());
 
 	playerJumpSFX = app->audio->LoadFx(jumpPath.GetString());
-	//playerSuperJumpSFX = app->audio->LoadFx(superJumpPath.GetString());
-	//playerHitSFX = app->audio->LoadFx(hurtPath.GetString());
-	
-	//checkpointSFX = app->audio->LoadFx(checkPath.GetString());
-	
+	playerSuperJumpSFX = app->audio->LoadFx(superJumpPath.GetString());
+	playerHitSFX = app->audio->LoadFx(hurtPath.GetString());
+	coinSFX = app->audio->LoadFx(gemPath.GetString());
+	checkpointSFX = app->audio->LoadFx(checkPath.GetString());
+	mushroomSFX = app->audio->LoadFx(cherryPath.GetString());
 	hitSFX = app->audio->LoadFx(enemyPath.GetString());
 	//Loading audio
 
 
 	return true;
 }
-
-// Called before quitting
 
 bool EntityManager::PreUpdate()
 {
@@ -85,7 +83,7 @@ bool EntityManager::PreUpdate()
 			ent->data->SetTarget(currentPlayer);
 		}
 	}
-	
+	OPTICK_CATEGORY("PreUpdate EntityManager", Optick::Category::AI);
 	return true;
 }
 void EntityManager::UpdateAll(float dt, bool canUpdate)
@@ -134,7 +132,7 @@ bool EntityManager::Update(float dt)
 				app->render->camera.y = -app->map->bounds.y;
 		}
 	}
-	
+	OPTICK_CATEGORY("Update EntityManager", Optick::Category::AI);
 
 	return true;
 }
@@ -146,20 +144,20 @@ bool EntityManager::PostUpdate()
 		switch (ent->data->type)
 		{
 		case EntityType::PLAYER: app->render->DrawTexture(playerTex, ent->data->GetPos().x - (ent->data->w / 2), ent->data->GetPos().y - (ent->data->h / 2), &ent->data->currentAnimation->GetCurrentFrame()); break;
-		case EntityType::ENEMY_BULLET:
+		case EntityType::ENEMY_BULLET: 
 		{
 			SDL_RendererFlip rotate = SDL_FLIP_NONE;
 			if (ent->data->pbody->body->GetLinearVelocity().x > 0) rotate = SDL_FLIP_HORIZONTAL;
-			app->render->DrawTexture(enemiesTex, ent->data->GetPos().x - (ent->data->w / 2), ent->data->GetPos().y - (ent->data->h / 2), &ent->data->currentAnimation->GetCurrentFrame(), false, 1.0f, rotate);
+			app->render->DrawTexture(enemiesTex, ent->data->GetPos().x - (ent->data->w / 2), ent->data->GetPos().y - (ent->data->h / 2), &ent->data->currentAnimation->GetCurrentFrame(),false, 1.0f, rotate);
 		}break;
 		case EntityType::ENEMY_GOOMBA:
 		{
 			SDL_RendererFlip rotate = SDL_FLIP_NONE;
 			if (ent->data->pbody->body->GetLinearVelocity().x > 0) rotate = SDL_FLIP_HORIZONTAL;
-			app->render->DrawTexture(enemiesTex, ent->data->GetPos().x - (ent->data->w / 2), ent->data->GetPos().y - (ent->data->h / 2), &ent->data->currentAnimation->GetCurrentFrame(), false, 1.0f, rotate);
+			app->render->DrawTexture(enemiesTex, ent->data->GetPos().x - (ent->data->w / 2), ent->data->GetPos().y - (ent->data->h / 2), &ent->data->currentAnimation->GetCurrentFrame(),false, 1.0f, rotate);
 		}break;
 		case EntityType::COIN: app->render->DrawTexture(collectTex, ent->data->GetPos().x - (ent->data->w / 2), ent->data->GetPos().y - (ent->data->h / 2), &ent->data->currentAnimation->GetCurrentFrame()); break;
-		
+		case EntityType::MUSHROOM: app->render->DrawTexture(collectTex, ent->data->GetPos().x - (ent->data->w / 2), ent->data->GetPos().y - (ent->data->h / 2), &ent->data->currentAnimation->GetCurrentFrame()); break;
 		case EntityType::CHECKPOINT: app->render->DrawTexture(checkTex, ent->data->GetPos().x - (ent->data->w / 2), ent->data->GetPos().y - (ent->data->h / 2), &ent->data->currentAnimation->GetCurrentFrame()); break;
 		}
 	}
@@ -167,7 +165,7 @@ bool EntityManager::PostUpdate()
 	{
 		DrawPath(path);
 	}
-	
+	OPTICK_CATEGORY("PostUpdate EntityManager", Optick::Category::AI);
 
 	return true;
 }
@@ -198,7 +196,7 @@ void EntityManager::OnCollision(PhysBody* bodyA, PhysBody* bodyB)
 			{
 				bodyB->eListener->health--;
 				app->audio->PlayFx(hitSFX);
-				//app->ui->AddScore(150);
+				app->ui->AddScore(150);
 			}
 
 			else if (topA > botB && currentPlayer->GetState() != EntityState::HURT)
@@ -212,12 +210,25 @@ void EntityManager::OnCollision(PhysBody* bodyA, PhysBody* bodyB)
 			}
 			return;
 		}
-	
+		else if (bodyB->eListener->type == MUSHROOM)
+		{
+			if (bodyA->eListener->health < 3)
+			{
+				bodyA->eListener->health++;	
+			}
+			else
+			{
+				app->ui->AddScore(50);
+			}
+			bodyB->eListener->Use();
+			app->audio->PlayFx(mushroomSFX);
+			return;
+		}
 		else if (bodyB->eListener->type == COIN)
 		{
 			bodyB->eListener->Use();
 			app->audio->PlayFx(coinSFX);
-			
+			app->ui->AddScore(100);
 			return;
 		}
 		else if (bodyB->eListener->type == CHECKPOINT && !bodyB->eListener->active)
@@ -240,7 +251,7 @@ void EntityManager::OnCollision(PhysBody* bodyA, PhysBody* bodyB)
 			{
 				app->currentScene = 2;
 			}
-
+			
 			bodyB->eListener->Use();
 			return;
 		}
@@ -289,34 +300,37 @@ Entity* EntityManager::CreateEntity(EntityType type, iPoint position)
 	Entity* ret = nullptr;
 	switch (type)
 	{
-	case EntityType::PLAYER:ret = new Player(position); break;
-	case EntityType::ENEMY_BULLET:
-	{
-		ret = new Bullet(position, currentPlayer, numBullet);
-		numBullet++;
-	}break;
-	case EntityType::ENEMY_GOOMBA:
-	{
-		ret = new Goomba(position, currentPlayer, numGoomba);
-		numGoomba++;
-	}break;
-	case EntityType::COIN:
-	{
-		ret = new Coin(position, numCoin);
-		numCoin++;
-	}break;
-	
-	case EntityType::CHECKPOINT:
-	{
-		ret = new CheckPoint(position, numCheckPoint);
-		numCheckPoint++;
-	}break;
-	/*case EntityType::DOOR:
-	{
-		ret = new Door(position, numDoor);
-		numDoor++;
-	}break;
-	*/
+		case EntityType::PLAYER:ret = new Player(position); break;
+		case EntityType::ENEMY_BULLET:
+		{
+			ret = new Bullet(position, currentPlayer, numBullet);
+			numBullet++;
+		}break;
+		case EntityType::ENEMY_GOOMBA:
+		{
+			ret = new Goomba(position, currentPlayer, numGoomba);
+			numGoomba++;
+		}break;
+		case EntityType::COIN:
+		{
+			ret = new Coin(position, numCoin);
+			numCoin++;
+		}break;
+		case EntityType::MUSHROOM	:
+		{
+			ret = new Mushroom(position, numMushroom);
+			numMushroom++;
+		}break;
+		case EntityType::CHECKPOINT:
+		{
+			ret = new CheckPoint(position, numCheckPoint);
+			numCheckPoint++;
+		}break;
+		case EntityType::DOOR:
+		{
+			ret = new Door(position, numDoor);
+			numDoor++;
+		}break;
 	}
 
 	if (ret != nullptr)
@@ -340,6 +354,7 @@ void EntityManager::DestroyAllEntities()
 {
 	currentPlayer = nullptr;
 	entities.Clear();
+	numMushroom = 0;
 	numCheckPoint = 0;
 	numGoomba = 0;
 	numBullet = 0;

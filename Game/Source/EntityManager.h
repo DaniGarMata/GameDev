@@ -1,5 +1,3 @@
-
-
 #include "Entity.h"
 #include "Module.h"
 #include "List.h"
@@ -17,7 +15,7 @@ public:
 	bool PostUpdate();
 	bool CleanUp();
 	void OnCollision(PhysBody* bodyA, PhysBody* bodyB);
-
+	
 	bool SaveState(pugi::xml_node& data) const;
 	bool LoadState(pugi::xml_node& data);
 	//Updates all the entities
@@ -30,7 +28,7 @@ public:
 	void DrawPath(SDL_Texture* tex);
 
 	void PlayJump();
-	void PlaySuperJump();	
+	void PlaySuperJump();
 public:
 	Player* currentPlayer = nullptr;
 private:
@@ -40,7 +38,7 @@ private:
 	int playerSuperJumpSFX;
 	int checkpointSFX;
 	int coinSFX;
-	
+	int mushroomSFX;
 
 
 	List<Entity*> entities;
@@ -62,7 +60,7 @@ private:
 	int numCoin = 0;
 	int numDoor = 0;
 	int numCheckPoint = 0;
+	int numMushroom = 0;
+
 	
-
-
 };

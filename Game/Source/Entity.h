@@ -10,7 +10,7 @@ enum EntityType
 	ENEMY_BULLET,
 	ENEMY_GOOMBA,
 	COIN,
-	HP,
+	MUSHROOM,
 	CHECKPOINT,
 	DOOR
 };
@@ -39,7 +39,7 @@ public:
 	int GetHealth() { return health; }
 	EntityState GetState() { return currentState; }
 	void SetState(EntityState state) { currentState = state; }
-	virtual bool LoadState(pugi::xml_node& data)
+	virtual bool LoadState(pugi::xml_node& data)	
 	{
 		bool ret = data;
 		active = data.attribute("active").as_bool();
@@ -50,7 +50,7 @@ public:
 	virtual bool SaveState(pugi::xml_node& data)
 	{
 		bool ret = true;
-
+		
 		data.append_attribute("active").set_value(active);
 
 		return ret;

@@ -9,41 +9,37 @@
 #include "Player.h"
 #include "Map.h"
 #include "Render.h"
+#include "Entity.h"
 
 struct SDL_Texture;
 
 
-class Enemy
+class Enemy : public Entity
 {
 public:
-	Enemy(){}
+	Enemy(EntityType type, iPoint position_, Entity* target_) : Entity(type, position_), target(target_){}
 
-	iPoint GetPos() { return pos; }
+	iPoint GetPos() { return position; }
 	void SetPos(float x, float y)
 	{
-		pos.x = x;
-		pos.y = y;
+		position.x = x;
+		position.y = y;
 	}
+
 	bool CheckIfHasTarget()
 	{
-		uint dist = Distance(app->player->pos.x, app->player->pos.y, pos.x, pos.y);
+		if (target == nullptr)
+			return false;
+
+		uint dist = Distance(target->GetPos().x, target->GetPos().y, position.x, position.y);
 		return dist < range;
+
 	}
 	bool IsBetween(int value, int a, int b)
 	{
 		return (value >= a && value <= b);
 	}
-	void DrawPath(SDL_Texture* tex)
-	{
-		if (currentPath != nullptr)
-		{
-			for (uint i = 0; i < currentPath->Count(); ++i)
-			{
-				iPoint pos = app->map->MapToWorld(currentPath->At(i)->x, currentPath->At(i)->y);
-				app->render->DrawTexture(tex, pos.x, pos.y);
-			}
-		}
-	}
+
 	int Distance(int x1, int y1, int x2, int y2)
 	{
 		return sqrtf(powf(x2 - x1, 2) + powf(y2 - y1, 2));
@@ -62,7 +58,7 @@ public:
 			iPoint indexO = app->map->MapToWorld(currentPath->At(i)->x, currentPath->At(i)->x);
 
 			indexDist = Distance(indexO.x, indexO.y, dest.x, dest.y);
-			activeDist = Distance(pos.x, pos.y, dest.x, dest.y);
+			activeDist = Distance(position.x, position.y, dest.x, dest.y);
 
 			if (indexDist < activeDist) {
 				pathIndex = i;
@@ -70,20 +66,41 @@ public:
 			}
 		}
 	}
-
 	virtual void Update(float dt){}
 
-public:
-	bool setPendingToDelete = false;
-	
-	int health;
-	
-	Animation anim;
-	PhysBody* pbody;
-	iPoint pos;
-	int h, w;
-	int speed = 10;
+	void SetTarget(Entity* target)
+	{
+		this->target = target;
+	}
+	Entity* GetTarget()
+	{
+		return target;
+	}
+	bool LoadState(pugi::xml_node& data)
+	{
+		bool ret = true;
+		position.x = data.child("pos").attribute("x").as_int();
+		position.y = data.child("pos").attribute("y").as_int();
+		pbody->body->SetTransform({ PIXEL_TO_METERS(position.x), PIXEL_TO_METERS(position.y) }, 0.0f);
+		health = data.child("values").attribute("lives").as_int();
 
+		return ret;
+	}
+
+
+	bool SaveState(pugi::xml_node& data)
+	{
+		bool ret = true;
+		pugi::xml_node posN = data.append_child("pos");
+		posN.append_attribute("x").set_value(position.x);
+		posN.append_attribute("y").set_value(position.y);
+		pugi::xml_node values = data.append_child("values");
+		values.append_attribute("lives").set_value(health);
+		return true;
+	}
+public:
+	int speed = 10;
+	Entity* target;
 	const DynArray<iPoint>* currentPath;
 	int range;
 	bool hasTarget = false;
@@ -96,13 +113,6 @@ public:
 	int pathIndex;
 
 	bool facingLeft;
-	
-	enum TYPE
-	{
-		GOOMBA = -1,
-		BULLET
-	};
-	TYPE type;
 };
 
 #endif

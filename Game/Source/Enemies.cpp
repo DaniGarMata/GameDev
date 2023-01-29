@@ -1,6 +1,6 @@
 #include "Enemies.h"
-#include "Bullet.h"
-#include "Goomba.h"
+#include "Eagle.h"
+#include "Rat.h"
 #include "App.h"
 #include "Textures.h"
 #include "Render.h"
@@ -25,10 +25,10 @@ bool Enemies::Awake(pugi::xml_node&config)
 
 bool Enemies::Start()
 {
-	SString tmp("%s%s", folder.GetString(), "enemies_mareo.png");
+	SString tmp("%s%s", folder.GetString(), "enemies.png");
 	SString tmp2("%s%s", folder.GetString(), "nav.png");
 	SString tmp3("%s%s", sfx.GetString(), "enemy.wav");
-	SString tmp4("%s%s", sfx.GetString(), "damage.wav");
+	SString tmp4("%s%s", sfx.GetString(), "playerHurt.wav");
 	hitSFX = app->audio->LoadFx(tmp3.GetString());
 	playerHit = app->audio->LoadFx(tmp4.GetString());
 	tex = app->tex->Load(tmp.GetString());
@@ -124,9 +124,9 @@ void Enemies::CreateEnemy(EnemyType type, float x, float y, int health)
 {
 	switch (type)
 	{
-	case BULLET:
+	case EAGLE:
 	{
-		Bullet* e = new Bullet();
+		Eagle* e = new Eagle();
 		e->SetPos(x - 20, y - 20);
 		e->pbody = app->physics->CreateRectangle(e->GetPos().x + e->w / 2, e->GetPos().y + e->h / 2, e->w, e->h, DYNAMIC);
 		e->pbody->listener = this;
@@ -135,9 +135,9 @@ void Enemies::CreateEnemy(EnemyType type, float x, float y, int health)
 		enemies.Add(e);
 		break;
 	}
-	case GOOMBA:
+	case RAT:
 	{
-		Goomba* r = new Goomba();
+		Rat* r = new Rat();
 		r->SetPos(x - r->w / 2, y - r->h / 2);
 		r->pbody = app->physics->CreateRectangle(r->GetPos().x + r->w / 2, r->GetPos().y + r->h / 2, r->w, r->h, DYNAMIC);
 		r->pbody->listener = this;

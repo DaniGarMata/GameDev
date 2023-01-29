@@ -5,41 +5,45 @@
 #include "Map.h"
 #include "SDL/include/SDL.h"
 
-Bullet::Bullet() : Enemy()
+Bullet::Bullet(iPoint position_, Entity* target, int ID_) : Enemy(EntityType::ENEMY_BULLET, position_, target)
 {
+	this->ID = ID_;
+	name.Create("bullet%i", ID);
 	anim.PushBack({ 0,28,36,42 });
 	/*anim.PushBack({40,31,40,40});
 	anim.PushBack({ 80,40,32,30 });
 	anim.PushBack({ 117,40,40,30 });*/
 	anim.speed = 0.1f;
 	anim.loop = true;
-	
-	h = 30;
-	w = 30;
+	this->h = 25;
+	this->w = 25;
+	pbody = app->physics->CreateRectangle(position.x, position.y, w, h, KINEMATIC);
+	pbody->eListener = this;
+	pbody->body->SetFixedRotation(true);
+	currentAnimation = &anim;
 	health = 1;
 	range = 300;
 	pathUpdateTime = 1.5f;
 	pathUpdateTimer = pathUpdateTime;
-	type = BULLET;
 }
-
-Bullet::~Bullet()
-{
-}
-
 
 void Bullet::Update(float dt)
 {
+	if (this->health <= 0)
+	{
+		this->setPendingToDelete = true;
+		return;
+	}
+
 	anim.Update();
 
 	hasTarget = CheckIfHasTarget();
 
 	//The enemy has only to move if it's in range of the player
-	pos.x = METERS_TO_PIXELS(pbody->body->GetPosition().x);
-	pos.y = METERS_TO_PIXELS(pbody->body->GetPosition().y);
-	if (hasTarget && health > 0 && app->player->lives > 0)
+	position.x = METERS_TO_PIXELS(pbody->body->GetPosition().x);
+	position.y = METERS_TO_PIXELS(pbody->body->GetPosition().y);
+	if (hasTarget && health > 0 && target->GetHealth() > 0)
 	{
-		printf("\nPos x: %i y %i", pos.x, pos.y);
 		ComputePath(dt);
 	}
 	else
@@ -60,8 +64,9 @@ void Bullet::Update(float dt)
 
 void Bullet::ComputePath(float dt)
 {
-	iPoint playerPos = app->player->pos;
-	float dist = Distance(pos.x, pos.y, playerPos.x, playerPos.y);
+	if (target == nullptr) return;
+	iPoint playerPos = target->GetPos();
+	float dist = Distance(position.x, position.y, playerPos.x, playerPos.y);
 	
 	pathUpdateTimer += dt;
 	if (dist > range) {
@@ -69,14 +74,14 @@ void Bullet::ComputePath(float dt)
 	}
 	else
 	{
-		if (!app->player->hurt)
+		if (target->GetState() != EntityState::HURT)
 		{
 			if (pathUpdateTimer >= pathUpdateTime) {
 				pathUpdateTimer = 0.0f;
 				pathIndex = 0;
 
-				iPoint origin = app->map->WorldToMap(pos.x, pos.y);
-				iPoint destination = app->map->WorldToMap(app->player->pos.x, app->player->pos.y);
+				iPoint origin = app->map->WorldToMap(position.x, position.y);
+				iPoint destination = app->map->WorldToMap(target->GetPos().x, target->GetPos().y);
 				int res = app->pathfinding->CreatePath(origin, destination);
 
 				if (res > 0) {
@@ -98,7 +103,7 @@ void Bullet::ComputePath(float dt)
 				if (currentPath != nullptr)
 				{
 					if (currentPath->Count() > 0) {
-						if (pos == activeNode) {
+						if (position == activeNode) {
 							pathIndex++;
 
 							if (pathIndex < currentPath->Count()) {
@@ -119,13 +124,12 @@ void Bullet::ComputePath(float dt)
 
 void Bullet::MoveToPlayer(iPoint destination, float dt)
 {
-	iPoint diff = destination - pos;
+	iPoint diff = destination - position;
 	
 	fPoint dir = { (float)diff.x, (float)diff.y };
 	dir.Normalize();
-	dir *= speed * 3;
+	dir *= speed * 4;
 
 	fPoint step = { dir.x / dt, dir.y / dt };
 	pbody->body->SetLinearVelocity({ step.x, step.y });
-	
 }

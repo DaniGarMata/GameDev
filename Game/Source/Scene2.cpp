@@ -8,11 +8,12 @@
 #include "Map.h"
 #include "Physics.h"
 #include "Player.h"
-#include "Enemies.h"
+#include "Pathfinding.h"
 #include "CheckPoint.h"
-#include "Collectables.h"
+#include "EntityManager.h"
 #include "Defs.h"
 #include "Log.h"
+#include "UI.h"
 
 Scene2::Scene2(bool startEnabled) : Module(startEnabled)
 {
@@ -30,7 +31,8 @@ bool Scene2::Awake(pugi::xml_node& config)
 	bool ret = true;
 	folder.Create(config.child("folder").child_value());
 	audioFile.Create(config.child("audio").child_value());
-	winX = config.child("winX").attribute("value").as_int();
+	startX = config.child("startX").attribute("value").as_int();
+	startY = config.child("startY").attribute("value").as_int();
 	LOG("%s", folder.GetString());
 	return ret;
 }
@@ -39,18 +41,21 @@ bool Scene2::Awake(pugi::xml_node& config)
 bool Scene2::Start()
 {
 	SString tmp("%s%s", folder.GetString(), "background.png");
-	SString tmp3("%s%s", audioFile.GetString(), "music/Gourment-Race.wav");
+	
+	SString tmp3("%s%s", audioFile.GetString(), "music/Dede's Payback.wav");
 	app->audio->PlayMusic(tmp3.GetString());
 	background = app->tex->Load(tmp.GetString());
+
 	LOG("%s", tmp.GetString());
 	app->physics->Enable();
-	app->player->Enable();
-	app->enemies->Enable();
-	app->collect->Enable();
-	app->check->Enable();
 	app->map->Enable();
 	app->audio->Enable();
-	app->player->currentScene = 2;
+	app->ui->Enable();
+	app->currentScene = 2;
+	app->entman->Enable();
+	Player* player = (Player*)app->entman->CreateEntity(PLAYER, iPoint{ startX, startY });
+	app->entman->SetPlayer(player);
+	app->die = false;
 	if (app->map->Load("map2.tmx") == true)
 	{
 		int w, h;
@@ -64,9 +69,14 @@ bool Scene2::Start()
 		RELEASE_ARRAY(data);
 	}
 
-	if (app->player->hasLost)
+	if (app->hasLost)
 	{
 		app->LoadGameRequest();
+	}
+	if (app->hasLoaded && app->canContinue)
+	{
+		app->LoadGameRequest();
+		app->canContinue = false;
 	}
 	return true;
 }
@@ -83,15 +93,15 @@ bool Scene2::Update(float dt)
 
 
 	if (app->input->GetKey(SDL_SCANCODE_F5) == KEY_DOWN)
-		app->LoadGameRequest();
-
-	if (app->input->GetKey(SDL_SCANCODE_F6) == KEY_DOWN)
 		app->SaveGameRequest();
 
-	if (app->input->GetKey(SDL_SCANCODE_F4) == KEY_DOWN || app->player->die)
+	if (app->input->GetKey(SDL_SCANCODE_F6) == KEY_DOWN)
+		app->LoadGameRequest();
+
+	if (app->input->GetKey(SDL_SCANCODE_F4) == KEY_DOWN || app->die)
 		app->fadeToBlack->MFadeToBlack(this, (Module*)app->death);
 
-	if (app->player->debug)
+	if (app->debug)
 	{
 		if (app->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
 			app->render->camera.y += 30;
@@ -106,18 +116,18 @@ bool Scene2::Update(float dt)
 			app->render->camera.x -= 30;
 	}
 
-	if (app->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN || app->player->currentScene == 1)
+	if (app->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN || app->currentScene == 1)
 		app->fadeToBlack->MFadeToBlack(this, (Module*)app->scene);
 	
-	if (app->input->GetKey(SDL_SCANCODE_F7) == KEY_DOWN ||app->player->pos.x == winX)
+	if (app->input->GetKey(SDL_SCANCODE_F7) == KEY_DOWN || app->currentScene == 3)
 	{
 		app->fadeToBlack->MFadeToBlack(this, (Module*)app->death);
-		app->player->win = true;
+		app->win_ = true;
 	}
 
 	// Draw map
 	app->render->DrawTexture(background, 0, 0, NULL, 0.75f);
-	
+	app->render->DrawTexture(jungle, 0, 284, NULL, 0.5f);
 	app->map->Draw();
 
 
@@ -130,9 +140,6 @@ bool Scene2::PostUpdate()
 {
 	bool ret = true;
 
-	if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
-		ret = false;
-
 	return ret;
 }
 
@@ -141,12 +148,12 @@ bool Scene2::CleanUp()
 {
 	LOG("Freeing scene");
 	app->tex->UnLoad(background);
-	app->player->Disable();
+	app->tex->UnLoad(jungle);
+	app->entman->DestroyAllEntities();
 	app->map->Unload();
 	app->map->Disable();
-	app->enemies->Disable();
-	app->check->Disable();
-	app->collect->Disable();
+
+	app->ui->Disable();
 	app->physics->Disable();
 	return true;
 }

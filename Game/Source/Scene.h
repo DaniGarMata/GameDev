@@ -30,6 +30,8 @@ public:
 	// Called before all Updates
 	bool PostUpdate();
 
+
+
 	// Called before quitting
 	bool CleanUp();
 
@@ -37,15 +39,21 @@ public:
 
 private:
 	SDL_Texture* background;
+	SDL_Texture* jungle;
 	SDL_Texture* pathTex;
-	SDL_Texture* originTex;
+
 	
 	SString folder;
 	SString audioFile;
-	int winX;
+	int startX;
+	int startY;
 
 	iPoint origin;
 	bool originSelected = false;
+
+
+
+
 };
 
 #endif // __SCENE_H__

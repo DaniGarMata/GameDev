@@ -1,42 +1,15 @@
-#include "Point.h"
-#include "Module.h"
-#include "Physics.h"
+#pragma once
+#include "Entity.h"
 #include "Animation.h"
-#include "List.h"
 
-
-struct SDL_Texture;
-
-struct Flag
-{
-	iPoint pos;
-	PhysBody* body;
-	bool isActive = true;
-	Animation flagAnim;
-};
-
-
-class CheckPoint : public Module
+class CheckPoint : public Entity
 {
 public:
-	CheckPoint(bool startEnabled);
-	~CheckPoint();
+	CheckPoint(iPoint position_, int ID);
 
-	bool Awake(pugi::xml_node&);
+	bool IsActivated();
+	void Activate();
 
-	bool Start();
-
-	bool Update(float dt);
-
-	bool CleanUp();
-
-	void OnCollision(PhysBody* bodyA, PhysBody* bodyB);
-
-	void CreateCheckpoint(int x, int y);
-private:
-	SDL_Texture* tex;
-	int SFX;
-	List<Flag*> checkpoints;
-	SString folder;
-	SString sfx;
+	void Update(float dt);
+	void Use();
 };

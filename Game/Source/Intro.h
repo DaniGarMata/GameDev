@@ -3,6 +3,9 @@
 
 #include "Module.h"
 #include "Animation.h"
+#include "GuiButton.h"
+#include "GuiCheck.h"
+#include "GuiSlidder.h"
 struct SDL_Texture;
 
 class Intro : public Module
@@ -10,6 +13,7 @@ class Intro : public Module
 public:
 
 	Intro(bool startEnabled);
+
 
 	// Destructor
 	virtual ~Intro();
@@ -32,15 +36,39 @@ public:
 	// Called before quitting
 	bool CleanUp();
 
+	// Define multiple Gui Event methods
+	bool OnGuiMouseClickEvent(GuiControl* control);
+
+	bool SaveState(pugi::xml_node& data) const;
+	bool LoadState(pugi::xml_node& data);
 
 private:
 	SDL_Texture* logoImg;
 	SDL_Texture* background;
-	SDL_Texture* enterImg;
+	SDL_Texture* credits;
+	SDL_Texture* settings;
+
 	Animation logoAnim;
 	int frames = 0;
 	SString folder;
 	SString audioFile;
+	SString guiFile;
+	GuiButton* btn1;
+	GuiButton* btn2;
+	GuiButton* btn3;
+	GuiButton* btn4;
+	GuiButton* btn5;
+	GuiButton* btn6;
+
+	GuiCheck* check1;
+	GuiCheck* check2;
+
+	GuiSlidder* slid1;
+	GuiSlidder* slid2;
+
+	bool load;
+	bool settingsShow = false;
+	bool creditShow = false;
 };
 
 #endif // __SCENE_H__

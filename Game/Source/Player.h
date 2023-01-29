@@ -3,7 +3,7 @@
 
 
 
-#include "Module.h"
+#include "Entity.h"
 #include "Point.h"
 #include "Animation.h"
 #include "Box2D/Box2D/Box2D.h"
@@ -12,49 +12,32 @@
 struct SDL_Texture;
 
 
-class Player : public Module
+class Player : public Entity
 {
 public:
-	Player(bool startEnabled);
-	~Player();
+	Player(iPoint position_);
 
-	bool Awake(pugi::xml_node&);
-
-	bool Start() override;
-
-	bool Update(float dt) override;
-
-	bool PostUpdate() override;
-
-	void OnCollision(PhysBody* bodyA, PhysBody* bodyB) override;
-
-	bool LoadState(pugi::xml_node&);
-	bool SaveState(pugi::xml_node&) const;
-
-	bool CleanUp() override;
-
-	iPoint pos;
+	void Update(float dt);
+	void Use();
+	void LoadAnims();
 
 
-	int currentScene;
 	bool grounded;
-	int lives;
-	int score;
-	bool win;
-	bool die;
-	bool debug;
 	bool god;
 	bool useDownDash;
-	int superPowerCD;
-	//Player's physbody
-	PhysBody* pbody;
+	int abilityCD;
 	bool hurt;
-	bool hasLost = false;
+
+	bool LoadState(pugi::xml_node&);
+	
+	bool SaveState(pugi::xml_node&);
 private:
 	//Jump sound
 	int jumpSFX;
-	int superPowerSFX;
+	int superJumpSFX;
 	//Jump SFX folder path
+	iPoint startPos;
+
 	SString jumpSFXFile;
 	//Variable for double jump
 	int numJumps;
@@ -63,20 +46,17 @@ private:
 	float maxVel;
 	float jumpVel;
 	//Sprite sheet folder path
-	SString folder;
+	
 	//Positions where the player should spawn in diferent levels
-	iPoint scene1;
-	iPoint scene2;
 	int counterDash;
 
 	int counter;
 	//Player's b2 Body
-	b2Body* c;
+	b2Body* c = nullptr;
 	
 	//Player texture
 	SDL_Texture* tex;
 	//Animations
-	Animation* currentAnimation = nullptr;
 
 	Animation idleAnimL;
 	Animation idleAnimR;

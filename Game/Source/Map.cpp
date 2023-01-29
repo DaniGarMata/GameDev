@@ -7,10 +7,10 @@
 #include "Defs.h"
 #include "Log.h"
 #include "Physics.h"
-#include "CheckPoint.h"
-#include "Collectables.h"
+#include "EntityManager.h"
+
 #include "Window.h"
-#include "Enemies.h"
+
 #include <math.h>
 
 Map::Map(bool startEnabled) : Module(startEnabled), mapLoaded(false)
@@ -62,7 +62,7 @@ void Map::Draw()
 	// L06: TODO 4: Make sure we draw all the layers and not just the first one
 	while (mapLayerItem != NULL) {
 
-		if (mapLayerItem->data->properties.GetProperty("Draw") == 1 || app->player->debug) {
+		if (mapLayerItem->data->properties.GetProperty("Draw") == 1 || app->debug) {
 
 			for (int x = 0; x < mapLayerItem->data->width; x++)
 			{
@@ -218,7 +218,7 @@ bool Map::LoadColliders()
 	ListItem<MapLayer*>* mapLayerItem;
 	mapLayerItem = mapData.layers.start;
 	
-	int* chain = new int[mapLayerItem->data->width * mapLayerItem->data->height];
+	//int* chain = new int[mapLayerItem->data->width * mapLayerItem->data->height];
 	mapLayerItem = mapData.layers.start;
 	while (mapLayerItem != NULL) {
 		if (mapLayerItem->data->properties.GetProperty("Collider") == 1)
@@ -267,7 +267,7 @@ bool Map::LoadProps()
 	ListItem<MapLayer*>* mapLayerItem;
 	mapLayerItem = mapData.layers.start;
 
-	int* chain = new int[mapLayerItem->data->width * mapLayerItem->data->height];
+	//int* chain = new int[mapLayerItem->data->width * mapLayerItem->data->height];
 	mapLayerItem = mapData.layers.start;
 	while (mapLayerItem != NULL) {
 		if (mapLayerItem->data->properties.GetProperty("Check") == 1)
@@ -286,13 +286,37 @@ bool Map::LoadProps()
 						iPoint pos = MapToWorld(x, y);
 						pos.x += r.w / 2;
 						pos.y += r.h / 2;
-						app->check->CreateCheckpoint(pos.x, pos.y);
+						app->entman->CreateEntity(CHECKPOINT, pos);
 
 					}
 
 				}
 			}
 		}
+		if (mapLayerItem->data->properties.GetProperty("Door") == 1)
+		{
+			for (int x = 0; x < mapLayerItem->data->width; x++)
+			{
+				for (int y = 0; y < mapLayerItem->data->height; y++)
+				{
+					int gid = mapLayerItem->data->Get(x, y);
+
+					if (gid > 0) {
+
+						TileSet* tileset = GetTilesetFromTileId(gid);
+
+						SDL_Rect r = tileset->GetTileRect(gid);
+						iPoint pos = MapToWorld(x, y);
+						pos.x += r.w / 2;
+						pos.y += r.h / 2;
+						app->entman->CreateEntity(DOOR, pos);
+
+					}
+
+				}
+			}
+		}
+
 		if (mapLayerItem->data->properties.GetProperty("Coins") == 1)
 		{
 			for (int x = 0; x < mapLayerItem->data->width; x++)
@@ -309,7 +333,7 @@ bool Map::LoadProps()
 						iPoint pos = MapToWorld(x, y);
 						pos.x += r.w / 2;
 						pos.y += r.h / 2;
-						app->collect->CreateObj(COIN ,pos.x, pos.y);
+						app->entman->CreateEntity(COIN, pos);
 
 					}
 
@@ -332,7 +356,7 @@ bool Map::LoadProps()
 						iPoint pos = MapToWorld(x, y);
 						pos.x += r.w / 2;
 						pos.y += r.h / 2;
-						app->collect->CreateObj(MUSHROOM, pos.x, pos.y);
+						app->entman->CreateEntity(MUSHROOM, pos);
 
 					}
 
@@ -355,7 +379,7 @@ bool Map::LoadProps()
 						iPoint pos = MapToWorld(x, y);
 						pos.x += r.w / 2;
 						pos.y += r.h / 2;
-						app->enemies->CreateEnemy(BULLET, pos.x, pos.y, 1);
+						app->entman->CreateEntity(ENEMY_BULLET, pos);
 
 					}
 
@@ -378,7 +402,31 @@ bool Map::LoadProps()
 						iPoint pos = MapToWorld(x, y);
 						pos.x += r.w / 2;
 						pos.y += r.h / 2;
-						app->enemies->CreateEnemy(GOOMBA, pos.x, pos.y, 1);
+						app->entman->CreateEntity(ENEMY_GOOMBA, pos);
+
+					}
+
+				}
+			}
+		}
+
+		if (mapLayerItem->data->properties.GetProperty("Door") == 1)
+		{
+			for (int x = 0; x < mapLayerItem->data->width; x++)
+			{
+				for (int y = 0; y < mapLayerItem->data->height; y++)
+				{
+					int gid = mapLayerItem->data->Get(x, y);
+
+					if (gid > 0) {
+
+						TileSet* tileset = GetTilesetFromTileId(gid);
+
+						SDL_Rect r = tileset->GetTileRect(gid);
+						iPoint pos = MapToWorld(x, y);
+						pos.x += r.w / 2;
+						pos.y += r.h / 2;
+						app->entman->CreateEntity(DOOR, pos);
 
 					}
 
