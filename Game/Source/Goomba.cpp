@@ -15,16 +15,16 @@ Goomba::Goomba(iPoint position_, Entity* target, int ID_) : Enemy(EntityType::EN
 	anim.PushBack({ 111, 6, 35, 20 });
 	anim.PushBack({ 147, 6, 35, 20 });
 	anim.PushBack({ 183, 3, 31, 23 });*/
-	anim.PushBack({ 0, 0, 27, 27 });
-	anim.PushBack({ 39, 0, 27, 27 });
+	anim.PushBack({ 0, 0, 32, 32 });
+	anim.PushBack({ 32, 0, 32, 32 });
 	/*anim.PushBack({75, 0, 27, 27});
 	anim.PushBack({ 111, 0, 27, 27 });
 	anim.PushBack({ 147, 0, 27, 27 });
 	anim.PushBack({ 183, 0, 27, 27 });*/
 	anim.speed = 0.1f;
 	anim.loop = true;
-	h = 20;
-	w = 20;
+	h = 32;
+	w = 32;
 	health = 1;
 	pbody = app->physics->CreateRectangle(position.x, position.y, w, h, DYNAMIC);
 	pbody->eListener = this;
