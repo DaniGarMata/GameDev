@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<config>
+	<app>
+		<title>Super Mareo</title>
+		<organization>UPC</organization>
+		<frcap value="16" />
+	</app>
+	<render>
+		<vsync value="false" />
+	</render>
+	<window>
+		<resolution width="1600" height="900" scale="3" />
+		<fullscreen value="false" />
+		<borderless value="false" />
+		<resizable value="false" />
+		<fullscreen_window value="false" />
+		<folder>Assets/Mareo_WIP.png</folder>
+	</window>
+	<audio>
+		<music value="5" />
+		<fx value="5" />
+	</audio>
+  <guiManager>
+    <folder>Assets/textures/GUI/</folder>
+  </guiManager>
+	<ui>
+		<folder>Assets/textures/UI/</folder>
+    <gui>Assets/textures/GUI/</gui>
+	</ui>
+	<entities>
+		<folder>Assets/textures/sprites/</folder>
+		<sfx>Assets/audio/fx/</sfx>
+	</entities>
+	<map>
+		<folder>Assets/maps/</folder>
+	</map>
+	<intro>
+		<audio>Assets/audio/</audio>
+		<folder>Assets/maps/</folder>
+    <gui>Assets/textures/GUI/</gui>
+	</intro>
+	<scene>
+		<audio>Assets/audio/</audio>
+		<folder>Assets/maps/</folder>
+		<startX value="23" />
+		<startY value="830" />
+	</scene>
+	<scene2>
+		<audio>Assets/audio/</audio>
+		<folder>Assets/maps/</folder>
+		<startX value="23" />
+		<startY value="830" />
+	</scene2>
+	<death>
+		<audio>Assets/audio/</audio>
+		<folder>Assets/maps/</folder>
+	</death>
+</config>

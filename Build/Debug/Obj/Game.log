@@ -1,232 +1,5 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(500,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-  CheckPoint.cpp
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(55,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(57,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  Mushroom.cpp
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(55,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(57,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  Death.cpp
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(55,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(57,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiButton.h(11,18): warning C4099: 'SDL_Texture': type name first seen using 'struct' now seen using 'class'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Fonts.h(10): message : see declaration of 'SDL_Texture'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiCheck.h(11,18): warning C4099: 'SDL_Texture': type name first seen using 'struct' now seen using 'class'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiButton.h(11): message : see declaration of 'SDL_Texture'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiSlidder.h(23,26): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-  Door.cpp
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(55,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(57,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  Bullet.cpp
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(55,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(57,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(25,16): warning C4244: '=': conversion from 'float' to 'TYPE', possible loss of data
-          with
-          [
-              TYPE=int
-          ]
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(26,16): warning C4244: '=': conversion from 'float' to 'TYPE', possible loss of data
-          with
-          [
-              TYPE=int
-          ]
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(35,15): warning C4018: '<': signed/unsigned mismatch
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(45,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(45,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(45,15): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(60,24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(61,25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Bullet.cpp(69,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Bullet.cpp(109,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Bullet.cpp(114,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Bullet.cpp(131,15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  EntityManager.cpp
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(55,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(57,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(25,16): warning C4244: '=': conversion from 'float' to 'TYPE', possible loss of data
-          with
-          [
-              TYPE=int
-          ]
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(26,16): warning C4244: '=': conversion from 'float' to 'TYPE', possible loss of data
-          with
-          [
-              TYPE=int
-          ]
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(35,15): warning C4018: '<': signed/unsigned mismatch
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(45,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(45,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(45,15): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(60,24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(61,25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiButton.h(11,18): warning C4099: 'SDL_Texture': type name first seen using 'struct' now seen using 'class'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(14): message : see declaration of 'SDL_Texture'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiCheck.h(11,18): warning C4099: 'SDL_Texture': type name first seen using 'struct' now seen using 'class'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiButton.h(11): message : see declaration of 'SDL_Texture'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiSlidder.h(23,26): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-  Fonts.cpp
-  Coin.cpp
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(55,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(57,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  GuiButton.cpp
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(55,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(57,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiButton.h(11,18): warning C4099: 'SDL_Texture': type name first seen using 'struct' now seen using 'class'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\External\SDL\include\SDL_render.h(127): message : see declaration of 'SDL_Texture'
-  GuiCheck.cpp
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(55,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(57,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiCheck.h(11,18): warning C4099: 'SDL_Texture': type name first seen using 'struct' now seen using 'class'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\External\SDL\include\SDL_render.h(127): message : see declaration of 'SDL_Texture'
-  GuiManager.cpp
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(55,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(57,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiButton.h(11,18): warning C4099: 'SDL_Texture': type name first seen using 'struct' now seen using 'class'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Textures.h(8): message : see declaration of 'SDL_Texture'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiCheck.h(11,18): warning C4099: 'SDL_Texture': type name first seen using 'struct' now seen using 'class'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiButton.h(11): message : see declaration of 'SDL_Texture'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiSlidder.h(23,26): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-  GuiSlidder.cpp
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(55,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(57,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiCheck.h(11,18): warning C4099: 'SDL_Texture': type name first seen using 'struct' now seen using 'class'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\External\SDL\include\SDL_render.h(127): message : see declaration of 'SDL_Texture'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiSlidder.h(23,26): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiSlidder.cpp(101,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiSlidder.cpp(185,20): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiSlidder.cpp(190,20): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  Intro.cpp
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(55,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(57,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiButton.h(11,18): warning C4099: 'SDL_Texture': type name first seen using 'struct' now seen using 'class'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\External\SDL\include\SDL_render.h(127): message : see declaration of 'SDL_Texture'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiCheck.h(11,18): warning C4099: 'SDL_Texture': type name first seen using 'struct' now seen using 'class'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiButton.h(11): message : see declaration of 'SDL_Texture'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiSlidder.h(23,26): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Intro.cpp(98,22): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Intro.cpp(99,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Intro.cpp(268,40): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Intro.cpp(272,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  Main.cpp
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Main.cpp(44,8): warning C4101: 'RealFPS': unreferenced local variable
-  App.cpp
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(55,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(57,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiButton.h(11,18): warning C4099: 'SDL_Texture': type name first seen using 'struct' now seen using 'class'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Death.h(6): message : see declaration of 'SDL_Texture'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiCheck.h(11,18): warning C4099: 'SDL_Texture': type name first seen using 'struct' now seen using 'class'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiButton.h(11): message : see declaration of 'SDL_Texture'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiSlidder.h(23,26): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\App.cpp(206,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\App.cpp(240,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\App.cpp(247,48): warning C4244: 'argument': conversion from 'float' to 'Uint32', possible loss of data
-  Audio.cpp
-  Input.cpp
-  Map.cpp
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(55,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(57,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  FadeToBlack.cpp
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\FadeToBlack.cpp(81,19): warning C4244: '=': conversion from 'float' to 'Uint32', possible loss of data
-  Pathfinding.cpp
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Point.h(125,26): warning C4244: 'argument': conversion from 'TYPE' to 'float', possible loss of data
-          with
-          [
-              TYPE=int
-          ]
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Point.h(121): message : while compiling class template member function 'TYPE Point<TYPE>::DistanceTo(const Point<TYPE> &) const'
-          with
-          [
-              TYPE=int
-          ]
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Pathfinding.cpp(162): message : see reference to function template instantiation 'TYPE Point<TYPE>::DistanceTo(const Point<TYPE> &) const' being compiled
-          with
-          [
-              TYPE=int
-          ]
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\PathFinding.h(73): message : see reference to class template instantiation 'Point<int>' being compiled
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Point.h(125,15): warning C4244: 'return': conversion from 'float' to 'TYPE', possible loss of data
-          with
-          [
-              TYPE=int
-          ]
-  Generating Code...
-  Compiling...
-  Perftimer .cpp
-  Physics.cpp
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(55,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(57,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Physics.cpp(91,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Physics.cpp(92,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Physics.cpp(143,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Physics.cpp(315,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Physics.cpp(316,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Physics.cpp(322,27): warning C4244: 'return': conversion from 'float32' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Physics.cpp(368,44): warning C4305: '=': truncation from 'double' to 'float32'
-  Player.cpp
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(55,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(57,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiButton.h(11,18): warning C4099: 'SDL_Texture': type name first seen using 'struct' now seen using 'class'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\External\SDL\include\SDL_render.h(127): message : see declaration of 'SDL_Texture'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiCheck.h(11,18): warning C4099: 'SDL_Texture': type name first seen using 'struct' now seen using 'class'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiButton.h(11): message : see declaration of 'SDL_Texture'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiSlidder.h(23,26): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-  Goomba.cpp
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(55,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(57,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(25,16): warning C4244: '=': conversion from 'float' to 'TYPE', possible loss of data
-          with
-          [
-              TYPE=int
-          ]
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(26,16): warning C4244: '=': conversion from 'float' to 'TYPE', possible loss of data
-          with
-          [
-              TYPE=int
-          ]
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(35,15): warning C4018: '<': signed/unsigned mismatch
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(45,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(45,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(45,15): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(60,24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Enemy.h(61,25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Goomba.cpp(77,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Goomba.cpp(117,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Goomba.cpp(122,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Goomba.cpp(144,15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Scene.cpp
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(55,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(57,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiButton.h(11,18): warning C4099: 'SDL_Texture': type name first seen using 'struct' now seen using 'class'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Player.h(12): message : see declaration of 'SDL_Texture'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiCheck.h(11,18): warning C4099: 'SDL_Texture': type name first seen using 'struct' now seen using 'class'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiButton.h(11): message : see declaration of 'SDL_Texture'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiSlidder.h(23,26): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-  Render.cpp
-  Scene2.cpp
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(55,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(57,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiButton.h(11,18): warning C4099: 'SDL_Texture': type name first seen using 'struct' now seen using 'class'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Player.h(12): message : see declaration of 'SDL_Texture'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiCheck.h(11,18): warning C4099: 'SDL_Texture': type name first seen using 'struct' now seen using 'class'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiButton.h(11): message : see declaration of 'SDL_Texture'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiSlidder.h(23,26): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Scene2.cpp(129,56): warning C4305: 'argument': truncation from 'float' to 'bool'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Scene2.cpp(130,53): warning C4305: 'argument': truncation from 'float' to 'bool'
-  Textures.cpp
-  Timer.cpp
-  UI.cpp
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(55,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\Animation.h(57,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiButton.h(11,18): warning C4099: 'SDL_Texture': type name first seen using 'struct' now seen using 'class'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\External\SDL\include\SDL_render.h(127): message : see declaration of 'SDL_Texture'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiCheck.h(11,18): warning C4099: 'SDL_Texture': type name first seen using 'struct' now seen using 'class'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiButton.h(11): message : see declaration of 'SDL_Texture'
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\GuiSlidder.h(23,26): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\UI.cpp(398,40): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\Documents\GitHub\GameDev\Game\Source\UI.cpp(402,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  Window.cpp
-  Log.cpp
-  pugixml.cpp
-  Generating Code...
+  LINK : C:\Users\ASUS\Documents\GitHub\GameDev\Build\Debug\Game.exe not found or not built by the last incremental link; performing full link
 Box2D.lib(b2DistanceJoint.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'Box2D.lib(b2DistanceJoint.obj)' or at 'C:\Users\ASUS\Documents\GitHub\GameDev\Build\Debug\Box2D.pdb'; linking object as if no debug info
 Box2D.lib(b2FrictionJoint.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'Box2D.lib(b2FrictionJoint.obj)' or at 'C:\Users\ASUS\Documents\GitHub\GameDev\Build\Debug\Box2D.pdb'; linking object as if no debug info
 Box2D.lib(b2GearJoint.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'Box2D.lib(b2GearJoint.obj)' or at 'C:\Users\ASUS\Documents\GitHub\GameDev\Build\Debug\Box2D.pdb'; linking object as if no debug info
@@ -247,7 +20,7 @@ Box2D.lib(b2EdgeAndCircleContact.obj) : warning LNK4099: PDB 'Box2D.pdb' was not
 Box2D.lib(b2EdgeAndPolygonContact.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'Box2D.lib(b2EdgeAndPolygonContact.obj)' or at 'C:\Users\ASUS\Documents\GitHub\GameDev\Build\Debug\Box2D.pdb'; linking object as if no debug info
 Box2D.lib(b2ChainAndCircleContact.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'Box2D.lib(b2ChainAndCircleContact.obj)' or at 'C:\Users\ASUS\Documents\GitHub\GameDev\Build\Debug\Box2D.pdb'; linking object as if no debug info
 Box2D.lib(b2ChainAndPolygonContact.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'Box2D.lib(b2ChainAndPolygonContact.obj)' or at 'C:\Users\ASUS\Documents\GitHub\GameDev\Build\Debug\Box2D.pdb'; linking object as if no debug info
-Box2D.lib(b2PolygonContact.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'Box2D.lib(b2PolygonContact.obj)' or at 'C:\Users\ASUS\Documents\GitHub\GameDev\Build\Debug\Box2D.pdb'; linking object as if no debug info
+Box2D.lib(b2PolygonContact.obj) : warning LNK4099: PDB '' was not found with 'Box2D.lib(b2PolygonContact.obj)' or at ''; linking object as if no debug info
 Box2D.lib(b2Body.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'Box2D.lib(b2Body.obj)' or at 'C:\Users\ASUS\Documents\GitHub\GameDev\Build\Debug\Box2D.pdb'; linking object as if no debug info
 Box2D.lib(b2ContactManager.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'Box2D.lib(b2ContactManager.obj)' or at 'C:\Users\ASUS\Documents\GitHub\GameDev\Build\Debug\Box2D.pdb'; linking object as if no debug info
 Box2D.lib(b2Fixture.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'Box2D.lib(b2Fixture.obj)' or at 'C:\Users\ASUS\Documents\GitHub\GameDev\Build\Debug\Box2D.pdb'; linking object as if no debug info
@@ -259,7 +32,7 @@ Box2D.lib(b2Draw.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'Box
 Box2D.lib(b2Math.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'Box2D.lib(b2Math.obj)' or at 'C:\Users\ASUS\Documents\GitHub\GameDev\Build\Debug\Box2D.pdb'; linking object as if no debug info
 Box2D.lib(b2Settings.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'Box2D.lib(b2Settings.obj)' or at 'C:\Users\ASUS\Documents\GitHub\GameDev\Build\Debug\Box2D.pdb'; linking object as if no debug info
 Box2D.lib(b2StackAllocator.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'Box2D.lib(b2StackAllocator.obj)' or at 'C:\Users\ASUS\Documents\GitHub\GameDev\Build\Debug\Box2D.pdb'; linking object as if no debug info
-Box2D.lib(b2Timer.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'Box2D.lib(b2Timer.obj)' or at 'C:\Users\ASUS\Documents\GitHub\GameDev\Build\Debug\Box2D.pdb'; linking object as if no debug info
+Box2D.lib(b2Timer.obj) : warning LNK4099: PDB '' was not found with 'Box2D.lib(b2Timer.obj)' or at ''; linking object as if no debug info
 Box2D.lib(b2EdgeShape.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'Box2D.lib(b2EdgeShape.obj)' or at 'C:\Users\ASUS\Documents\GitHub\GameDev\Build\Debug\Box2D.pdb'; linking object as if no debug info
 Box2D.lib(b2ChainShape.obj) : warning LNK4099: PDB '' was not found with 'Box2D.lib(b2ChainShape.obj)' or at ''; linking object as if no debug info
 Box2D.lib(b2PolygonShape.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'Box2D.lib(b2PolygonShape.obj)' or at 'C:\Users\ASUS\Documents\GitHub\GameDev\Build\Debug\Box2D.pdb'; linking object as if no debug info
@@ -268,7 +41,7 @@ Box2D.lib(b2CollideCircle.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found 
 Box2D.lib(b2CollideEdge.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'Box2D.lib(b2CollideEdge.obj)' or at 'C:\Users\ASUS\Documents\GitHub\GameDev\Build\Debug\Box2D.pdb'; linking object as if no debug info
 Box2D.lib(b2CollidePolygon.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'Box2D.lib(b2CollidePolygon.obj)' or at 'C:\Users\ASUS\Documents\GitHub\GameDev\Build\Debug\Box2D.pdb'; linking object as if no debug info
 Box2D.lib(b2Collision.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'Box2D.lib(b2Collision.obj)' or at 'C:\Users\ASUS\Documents\GitHub\GameDev\Build\Debug\Box2D.pdb'; linking object as if no debug info
-Box2D.lib(b2Distance.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'Box2D.lib(b2Distance.obj)' or at 'C:\Users\ASUS\Documents\GitHub\GameDev\Build\Debug\Box2D.pdb'; linking object as if no debug info
+Box2D.lib(b2Distance.obj) : warning LNK4099: PDB '' was not found with 'Box2D.lib(b2Distance.obj)' or at ''; linking object as if no debug info
 Box2D.lib(b2DynamicTree.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'Box2D.lib(b2DynamicTree.obj)' or at 'C:\Users\ASUS\Documents\GitHub\GameDev\Build\Debug\Box2D.pdb'; linking object as if no debug info
-Box2D.lib(b2TimeOfImpact.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'Box2D.lib(b2TimeOfImpact.obj)' or at 'C:\Users\ASUS\Documents\GitHub\GameDev\Build\Debug\Box2D.pdb'; linking object as if no debug info
+Box2D.lib(b2TimeOfImpact.obj) : warning LNK4099: PDB '' was not found with 'Box2D.lib(b2TimeOfImpact.obj)' or at ''; linking object as if no debug info
   Game.vcxproj -> C:\Users\ASUS\Documents\GitHub\GameDev\Build\Debug\Game.exe
